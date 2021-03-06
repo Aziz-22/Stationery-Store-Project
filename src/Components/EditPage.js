@@ -149,7 +149,6 @@ export default class Home extends Component {
                   type="text"
                   id="user-input-pName-edit"
                   placeholder="Type Your Product Here"
-                  value={this.state.valueName}
                   className="form-control"
                 />
               </div>

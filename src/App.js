@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Home from "./Components/Home";
-import Edit_Page from "./Components/Edit_Page";
-import Add_Page from "./Components/Add_Page";
+import EditPage from "./Components/EditPage";
+import AddPage from "./Components/AddPage";
 import "./App.css";
-import API_Page from "./Components/API_Page";
-import Delete_Page from "./Components/Delete_Page";
-import Get_All from "./Components/Get_All";
+import APIPage from "./Components/APIPage";
+import DeletePage from "./Components/DeletePage";
+import GetAll from "./Components/Get_All";
 import Fave from "./Components/Fave";
 import logo from "./Images/Logo_Stationery.PNG";
 // This Import For Brings Icons From react-icons/ai
@@ -15,7 +15,6 @@ import { RiHeartAddLine } from "react-icons/ri";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   NavLink,
 } from "react-router-dom";
 
@@ -120,7 +119,7 @@ class App extends Component {
               <img
                 src={logo}
                 className="img-rounded"
-                alt="Image "
+                alt="Image"
                 width="15%"
                 height="15%"
                 rounded
@@ -188,20 +187,20 @@ class App extends Component {
             <Route
               exact
               path="/Add-Page"
-              component={() => <Add_Page test={this.AddProduct} />}
+              component={() => <AddPage test={this.AddProduct} />}
             ></Route>
             <Route
               exact
               path="/Edit_Page"
               component={() => (
-                <Edit_Page productProps={this.state.objectOfProducts} />
+                <EditPage productProps={this.state.objectOfProducts} />
               )}
             ></Route>
             <Route
               exact
               path="/Delete_Page"
               component={() => (
-                <Delete_Page
+                <DeletePage
                   productProps={this.state.objectOfProducts}
                   myFun={this.delete}
                 />
@@ -211,13 +210,13 @@ class App extends Component {
               exact
               path="/Get_All"
               component={() => (
-                <Get_All
+                <GetAll
                   productProps={this.state.objectOfProducts}
                   myFun={this.myFave}
                 />
               )}
             ></Route>
-            <Route exact path="/API_Page" component={API_Page}></Route>
+            <Route exact path="/API_Page" component={APIPage}></Route>
             <Route
               exact
               path="/Fave"

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import "../index.css";
-import App from "../App";
-import Edit_Page from "./Edit_Page";
+import Edit_Page from "./EditPage";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  NavLink,
+
 } from "react-router-dom";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 export default class Add_Page extends Component {
@@ -112,7 +110,7 @@ export default class Add_Page extends Component {
             path="/Edit_Page"
             foo="I'm Prop"
             component={() => (
-              <Edit_Page arrayProps={this.state.objectOfProducts.name} />
+              <EditPage arrayProps={this.state.objectOfProducts.name} />
             )}
           ></Route>
           {/* <Route exact path="/" component={App}></Route> */}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
-export default class Delete_Page extends Component {
+export default class DeletePage extends Component {
   myArr = this.props.productProps.name;
   myArrQuan = this.props.productProps.quan;
 

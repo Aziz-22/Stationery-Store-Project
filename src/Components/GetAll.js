@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
-export default class Get_All extends Component {
+export default class GetAll extends Component {
 
   constructor(props) {
     

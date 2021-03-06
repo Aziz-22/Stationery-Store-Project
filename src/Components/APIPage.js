@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import axios from "axios";
 import $ from "jquery";
-export default class API_Page extends Component {
+export default class APIPage extends Component {
     constructor(props) {
         super(props);
 

@@ -2,7 +2,7 @@
   "name": "stationery-store",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Aziz-22/Stationery-Store-Project/",
+  "homepage": "http://Aziz-22.github.io/Stationery-Store-Project",
   "dependencies": {
     "@babel/core": "^7.12.16",
     "@testing-library/jest-dom": "^5.11.4",

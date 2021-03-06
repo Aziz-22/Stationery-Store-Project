@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# Project2-Stationery-Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link technologies used:
 
-## Available Scripts
+- React.
+- Router.
+- Axios.
+- Some Bootstrap (It's responsive by more than 50% ).
+- Jquery.
+- Css.
+- Some Icons.
 
-In the project directory, you can run:
+# Wireframe/ Draft
 
-### `yarn start`
+## Structure Of the system's work flow.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![](Images-Wireframes/Structure-Of-React-System.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Home Page.
 
-### `yarn test`
+![](Images-Wireframes/Draft_V1.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Add Page.\_
 
-### `yarn build`
+![](Images-Wireframes/Add-Page.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Edit Page.\_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](Images-Wireframes/Edit-Page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Delete Page\_
 
-### `yarn eject`
+![](Images-Wireframes/Delete-Page.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# User stories
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- As a [user], I want to [Add a product with their quantity] so I can [add new product to my table].
+- As a [user], I want to [Edit any of my products] so I can [edit on any existed product].
+- As a [user], I want to [Delete a specific row of my products] so I can [Get rid any product I want].
+- As a [user], I want to [Delete all products] so I can [Quick clear all products with on click].
+- As a [user], I want to [Get all products] so I can [know and view my products].
+- As a [user], I want to [Mark any products as favorite] so I can [move any products to my favorite list].
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# My strategies for solving the problem
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- First, I have decided to make a menu as a home page so through that menu the user can go anywhere he wants like add, edit, delete, API, and favorite page.\*
+- Second, I have made a form in the add page so the user can enter a new product with their quantity to the table.\*.
+- Third, after the user added a product he can also edit on them or even delete on of them or delete all them.\*
+- Fourth, I have made a new page as a favorite so the user is able to mark any product as a favorite and added them to the favorite table.\*
+- Finally, I have made an API page so through that the user can enter anything in that form and will display to his images as Gif for that input he entered.\*
 
-## Learn More
+# Future plan..
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_I would like to allow a user to add an image for a product, also make some validation on the system._
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Describe some favorite function work
 
-### Code Splitting
+**This Function take two arguments the name and the quan, then I have pushed the name and the quan to the Fave array then Update the faveObjects state**
+\*myFave = (faveName,faveQuan) => {
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    console.log(faveName, faveQuan)
+    let newFaveArrayName = this.state.faveObjects.isFaveArrayName;
+    newFaveArrayName.push(faveName);
+    let newFaveArrayQuan = this.state.faveObjects.isFaveArrayQuan;
+    newFaveArrayQuan.push(faveQuan);
+    this.setState({
 
-### Analyzing the Bundle Size
+      faveObjects: {
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+        isFaveArrayName: newFaveArrayName,
+        isFaveArrayQuan: newFaveArrayQuan,
 
-### Making a Progressive Web App
+      }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    });
+    console.log(this.state.faveObjects.isFaveArrayName)
+    console.log(this.state.faveObjects.isFaveArrayQuan)
 
-### Advanced Configuration
+    alert("Added Successfully")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+}
 
-### Deployment
+\* AddProduct = (pName, quan) => {
+**This Function take two arguments the name and the quan, then display to the user as a table.**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    console.log(pName, quan);
 
-### `yarn build` fails to minify
+    this.setState({
+      objectOfProducts: {
+        name: [...this.state.objectOfProducts.name, pName],
+        quan: [...this.state.objectOfProducts.quan, quan],
+      },
+    });
+    alert("Added Successfully ");
+    console.log("Added Success");
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+};
+
+# Links
+
+- The Website http://localhost:3000/AbdulazizAlsaif/Project2-Stationery-Store

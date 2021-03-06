@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
-import Edit_Page from "./EditPage";
+import EditPage from "./EditPage";
 import {
   BrowserRouter as Router,
   Route,

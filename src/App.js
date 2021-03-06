@@ -5,7 +5,7 @@ import AddPage from "./Components/AddPage";
 import "./App.css";
 import APIPage from "./Components/APIPage";
 import DeletePage from "./Components/DeletePage";
-import GetAll from "./Components/Get_All";
+import GetAll from "./Components/GetAll";
 import Fave from "./Components/Fave";
 import logo from "./Images/Logo_Stationery.PNG";
 // This Import For Brings Icons From react-icons/ai

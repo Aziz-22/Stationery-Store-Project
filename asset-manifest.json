@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/Aziz-22/Stationery-Store-Project/static/css/main.f76d1410.chunk.css",
-    "main.js": "/Aziz-22/Stationery-Store-Project/static/js/main.11b0dc5b.chunk.js",
-    "main.js.map": "/Aziz-22/Stationery-Store-Project/static/js/main.11b0dc5b.chunk.js.map",
+    "main.js": "/Aziz-22/Stationery-Store-Project/static/js/main.504d0123.chunk.js",
+    "main.js.map": "/Aziz-22/Stationery-Store-Project/static/js/main.504d0123.chunk.js.map",
     "runtime-main.js": "/Aziz-22/Stationery-Store-Project/static/js/runtime-main.e0b0d746.js",
     "runtime-main.js.map": "/Aziz-22/Stationery-Store-Project/static/js/runtime-main.e0b0d746.js.map",
-    "static/js/2.20386db0.chunk.js": "/Aziz-22/Stationery-Store-Project/static/js/2.20386db0.chunk.js",
-    "static/js/2.20386db0.chunk.js.map": "/Aziz-22/Stationery-Store-Project/static/js/2.20386db0.chunk.js.map",
+    "static/js/2.913aa1a4.chunk.js": "/Aziz-22/Stationery-Store-Project/static/js/2.913aa1a4.chunk.js",
+    "static/js/2.913aa1a4.chunk.js.map": "/Aziz-22/Stationery-Store-Project/static/js/2.913aa1a4.chunk.js.map",
     "index.html": "/Aziz-22/Stationery-Store-Project/index.html",
     "static/css/main.f76d1410.chunk.css.map": "/Aziz-22/Stationery-Store-Project/static/css/main.f76d1410.chunk.css.map",
-    "static/js/2.20386db0.chunk.js.LICENSE.txt": "/Aziz-22/Stationery-Store-Project/static/js/2.20386db0.chunk.js.LICENSE.txt",
+    "static/js/2.913aa1a4.chunk.js.LICENSE.txt": "/Aziz-22/Stationery-Store-Project/static/js/2.913aa1a4.chunk.js.LICENSE.txt",
     "static/media/Logo_Stationery.3ea0f6ed.PNG": "/Aziz-22/Stationery-Store-Project/static/media/Logo_Stationery.3ea0f6ed.PNG"
   },
   "entrypoints": [
     "static/js/runtime-main.e0b0d746.js",
-    "static/js/2.20386db0.chunk.js",
+    "static/js/2.913aa1a4.chunk.js",
     "static/css/main.f76d1410.chunk.css",
-    "static/js/main.11b0dc5b.chunk.js"
+    "static/js/main.504d0123.chunk.js"
   ]
 }

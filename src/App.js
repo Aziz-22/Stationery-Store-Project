@@ -126,7 +126,7 @@ class App extends Component {
               ></img>
 
               <NavLink
-                to="/API_Page"
+                to="/Stationery-Store-Project/API_Page"
                 style={{ textDecoration: "none" }}
                 activeClassName="api-link"
               >
@@ -216,7 +216,7 @@ class App extends Component {
                 />
               )}
             ></Route>
-            <Route exact path="Stationery-Store-Project/API_Page" component={APIPage}></Route>
+            <Route exact path="/Stationery-Store-Project/API_Page" component={APIPage}></Route>
             <Route
               exact
               path="/Fave"

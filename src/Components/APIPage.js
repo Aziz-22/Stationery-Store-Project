@@ -43,7 +43,7 @@ export default class APIPage extends Component {
     showGifs = (myVar) => {
     const divContainer = document.getElementById("container");
         console.log("I'm In ShowGifs Method ", myVar);
-        const API_1 = `http://api.giphy.com/v1/gifs/search?q=${myVar}&api_key=dc6zaTOxFJmzC`;
+        const API_1 = `https://api.giphy.com/v1/gifs/search?q=${myVar}&api_key=dc6zaTOxFJmzC`;
         axios
             .get(API_1)
             .then((response) => {

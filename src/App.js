@@ -216,7 +216,7 @@ class App extends Component {
                 />
               )}
             ></Route>
-            <Route exact path="/API_Page" component={APIPage}></Route>
+            <Route exact path="Stationery-Store-Project/API_Page" component={APIPage}></Route>
             <Route
               exact
               path="/Fave"

@@ -14,7 +14,7 @@ export default class Add_Page extends Component {
       //   },
 
       valueName: "",
-      valueQuan: 1,
+      valueQuan: "",
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
@@ -45,8 +45,11 @@ export default class Add_Page extends Component {
         <div>
           <h1 class="text-center" id="AddTitle">Add A Product</h1>
 
+          
+
           <div>
             <form>
+        
               <div class="form-floating mb-3">
                 <input
                   type="email"
@@ -54,6 +57,7 @@ export default class Add_Page extends Component {
                   id="form-control-input1-id"
                   value={this.state.valueName}
                   onChange={this.handleChangeName}
+                  placeholder="Type Here Your Product"
                 />
                 <label for="form-control-input1-id" className="form-label">
                   What Do You Want To Add?
@@ -66,6 +70,7 @@ export default class Add_Page extends Component {
                   id="form-control-input2-id"
                   value={this.state.valueQuan}
                   onChange={this.handleChangeQuan}
+                  placeholder="How Many Do you Want?"
                 />
                 <label for="form-control-input2-id" className="form-label">
                   Quantity

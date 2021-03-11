@@ -176,46 +176,27 @@ class App extends Component {
             ></img></p>
 
             
-            {/* <nav className="app-nav"> */}
-            {/* Logo For Website... */}
-
-            {/* <h1 className="name-website">Stationery Store In Your Hands</h1>
-
-              <img
-                src={logo}
-                className="img-rounded"
-                alt="MyImage"
-                width="15%"
-                height="15%"
-                rounded
-              ></img> */}
-
-            {/* <NavLink
-                to="/Stationery-Store-Project/API_Page"
-                style={{ textDecoration: "none" }}
-                activeClassName="api-link"
-              >
-                <h4 id="API-tag">Something Fun</h4>
-              </NavLink>
-              <NavLink
-                to="/Fave"
-                style={{ textDecoration: "none" }}
-                activeClassName="fave-link"
-              >
-                <h2 id="fave-icon">
-                  <RiHeartAddLine />
-                  <span className="counter-style">
-                    {this.state.faveObjects.isFaveArrayName.length}
-                  </span>
-                </h2>
-              </NavLink>
-            </nav> */}
+           
 
             <h3 className="text-center" style={{ margin: "10vh 0" }}>
               {" "}
               What Do You Want?
             </h3>
 
+            <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" aria-selected="true" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
             <div className="link-tags">
               {/* We can use Link tag, but I've used NavLink to styling purpose only because if we have used NavLink we can't add styling on it. */}
 

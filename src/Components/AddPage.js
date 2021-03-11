@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "../index.css";
 import EditPage from "./EditPage";
-import {
-  BrowserRouter as Router,
-  Route,
-
-} from "react-router-dom";
-import { Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 export default class Add_Page extends Component {
   constructor(props) {
     super(props);
@@ -39,53 +34,45 @@ export default class Add_Page extends Component {
   Add_Operation = (e) => {
     // To Prevent The Refresh The Page And Fire Toggle
     e.preventDefault();
-    
+
     console.log("Name ", this.state.valueName, "Quan ", this.state.valueQuan);
     this.props.test(this.state.valueName, this.state.valueQuan);
-
-    
   };
 
   render() {
     return (
       <Router>
         <div>
-         
-
-          <h1>Add A Product</h1>
+          <h1 class="text-center" id="AddTitle">Add A Product</h1>
 
           <div>
             <form>
-              <div id = "div-input" className="form-group">
-                <label className="text-pName">What Do You Want To Add?</label>{" "}
-                <center>
+              <div class="form-floating mb-3">
                 <input
+                  type="email"
+                  class="form-control"
+                  id="form-control-input1-id"
                   value={this.state.valueName}
                   onChange={this.handleChangeName}
-                  type="text"
-                  id="user-input-pName"
-                  placeholder="Type Your Product Here"
-                  className="form-control"
-                  />
-                  </center>
+                />
+                <label for="form-control-input1-id" className="form-label">
+                  What Do You Want To Add?
+                </label>
               </div>
-              <br />
-              <br />
-              <div id = "div-input"  className="form-group">
-                <label className="text-quan">Quantity </label>{" "}
-                <center>
+              <div class="form-floating">
                 <input
+                  type="number"
+                  class="form-control"
+                  id="form-control-input2-id"
                   value={this.state.valueQuan}
                   onChange={this.handleChangeQuan}
-                  type="number"
-                  id="user-input-pQuan"
-                  placeholder="How Many Pieces You Want?"
-                  className="form-control"
-                  />
-                  </center>
+                />
+                <label for="form-control-input2-id" className="form-label">
+                  Quantity
+                </label>
               </div>
-              <br />
-              <br />
+              
+              
               {/* <label> Do You Want To Upload an Image?</label>{" "}
               <input type="file" id="user-input-upload" />
               <br />
@@ -104,6 +91,8 @@ export default class Add_Page extends Component {
                 className="btn btn-danger"
               />
             </form>
+
+            
           </div>
           <Route
             exact

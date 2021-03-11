@@ -12,11 +12,7 @@ import logo from "./Images/Logo_Stationery.PNG";
 import { RiHeartAddLine } from "react-icons/ri";
 
 // These Imports For Router
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -110,22 +106,91 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container">
-            <Home />
-            <nav className="app-nav">
-              {/* Logo For Website... */}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                  <img
+                    src={logo}
+                    alt=""
+                    width="30"
+                    height="24"
+                    class="d-inline-block align-top"
+                  ></img>
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                  class="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <NavLink
+                        to="/Fave"
+                        style={{ textDecoration: "none" }}
+                        activeClassName="fave-link"
+                      >
+                        <h2
+                          id="fave-icon"
+                          style={{ width: "30", height: "24" }}
+                          class="d-inline-block align-top"
+                        >
+                          <RiHeartAddLine />
+                          <span className="counter-style">
+                            {this.state.faveObjects.isFaveArrayName.length}
+                          </span>
+                        </h2>
+                      </NavLink>
+                    </li>
 
-              <h1 className="name-website">Stationery Store In Your Hands</h1>
+                    <p className="title">
+                       Stationery Store In Your Hands
+                    </p>
+                  </ul>
+                  <NavLink
+                    to="/Stationery-Store-Project/API_Page"
+                    style={{ textDecoration: "none" }}
+                    activeClassName="api-link"
+                  >
+                    <h4 id="API-tag">Something Fun</h4>
+                  </NavLink>
+                </div>
+              </div>
+            </nav>
+             <p class="text-center" style={{margin: "4vh 0"}}><img
+              src={logo}
+              className="img-rounded"
+              alt="MyImage"
+              width="15%"
+              height="15%"
+              rounded
+            ></img></p>
+
+            
+            {/* <nav className="app-nav"> */}
+            {/* Logo For Website... */}
+
+            {/* <h1 className="name-website">Stationery Store In Your Hands</h1>
 
               <img
                 src={logo}
                 className="img-rounded"
-                alt="Image"
+                alt="MyImage"
                 width="15%"
                 height="15%"
                 rounded
-              ></img>
+              ></img> */}
 
-              <NavLink
+            {/* <NavLink
                 to="/Stationery-Store-Project/API_Page"
                 style={{ textDecoration: "none" }}
                 activeClassName="api-link"
@@ -144,9 +209,12 @@ class App extends Component {
                   </span>
                 </h2>
               </NavLink>
-            </nav>
+            </nav> */}
 
-            <h3 className="question"> What Do You Want?</h3>
+            <h3 className="text-center" style={{ margin: "10vh 0" }}>
+              {" "}
+              What Do You Want?
+            </h3>
 
             <div className="link-tags">
               {/* We can use Link tag, but I've used NavLink to styling purpose only because if we have used NavLink we can't add styling on it. */}
@@ -216,7 +284,11 @@ class App extends Component {
                 />
               )}
             ></Route>
-            <Route exact path="/Stationery-Store-Project/API_Page" component={APIPage}></Route>
+            <Route
+              exact
+              path="/Stationery-Store-Project/API_Page"
+              component={APIPage}
+            ></Route>
             <Route
               exact
               path="/Fave"

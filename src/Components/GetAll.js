@@ -32,7 +32,9 @@ export default class GetAll extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Your Products</h1>
+        <p className="text-center">
+          <h1>Your Products</h1>
+        </p>
 
         <table className = "table">
           <thead>

@@ -120,7 +120,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container">
-        <h2>Your Cart</h2>
+         <p className="text-center">
+            <h1>Your Cart</h1>
+          </p>
 
         <table className="table">
           <thead>

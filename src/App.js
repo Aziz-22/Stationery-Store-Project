@@ -228,34 +228,7 @@ class App extends Component {
             {/* <div className="link-tags"> */}
               {/* We can use Link tag, but I've used NavLink to styling purpose only because if we have used NavLink we can't add styling on it. */}
 
-              {/* <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="add-link"
-                to="/Add-Page"
-              >
-                Add A Product
-              </NavLink> */}
-              {/* <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="edit-link"
-                to="/Edit_Page"
-              >
-                Edit On A Product
-              </NavLink> */}
-              {/* <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="delete-link"
-                to="/Delete_Page"
-              >
-                Delete A Product/s
-              </NavLink> */}
-              {/* <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="get-link"
-                to="/Get_All"
-              >
-                Get All Products
-              </NavLink> */}
+             
             {/* </div> */}
             {/* Line 176: Here To set the Home Component as Default Page. */}
             <Route exact path="/" component={Home}></Route>

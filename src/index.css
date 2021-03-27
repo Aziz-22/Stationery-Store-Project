@@ -175,6 +175,28 @@ td {
 
 /** New Styles */
 
+#userInput {
+
+
+  width: 30vw;
+  border-right: none;
+  border-radius: 15px;
+  /* margin: auto; */
+  height: 6vh !important;
+  
+}
+
+#mybutton{
+
+   border-radius: 15px;
+   border-top-left-radius: 0px;
+   border-bottom-left-radius: 0px;
+   border-left-style: none;
+   margin-left: -9vw;
+   height: 6vh;
+   width: 9vw;
+}
+
 .nav-link {
 
   margin-left: 8vw;
@@ -267,6 +289,12 @@ td {
     margin-bottom: 10vh;
 
   }
+
+  #mybutton{
+
+   margin-left: -21vw;
+   width: 21vw;
+}
 }
 
 @media only screen and (min-width: 480px) and (max-width: 540px) {
@@ -275,8 +303,7 @@ td {
   .form-control {
     width: 50vw !important;
     height: auto !important;
-    position: relative;
-    left: 10vw;
+    
   }
 
   .form-label {
@@ -287,4 +314,14 @@ td {
     margin: 6vw 10vw 0 14vw;
     width: auto;
   }
+
+  #mybutton {
+
+    margin-left: -16vw;
+    width: 16vw;
+
+  }
+
+ 
 }
+

@@ -21,7 +21,7 @@ export default class APIPage extends Component {
   checkSpace = (event) => {
     console.log("I'm In");
     event.preventDefault();
-    const form = $("#Input");
+    const form = $("#userInput");
     let VAR = form.val();
 
     console.log("Before ", VAR);
@@ -96,8 +96,8 @@ export default class APIPage extends Component {
           <h3>Type Anything To See Images As Gif For That.</h3>
         </p>
 
-        <form style={{ textAlign: "center" }} id="myForm" method="GET">
-          <input
+        <form id="myFor" method="GET">
+          {/* <input
             id="Input"
             type="text"
             placeholder="Type Anything To See Images As Gif For That."
@@ -107,8 +107,24 @@ export default class APIPage extends Component {
 
           <button id="Btn" onClick={(e) => this.checkSpace(e)}>
             Submit
-          </button>
-
+          </button> */}
+          <div style={{display: "flex", justifyContent: "center", marginTop: "6vh"}}>
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                id="userInput"
+                onChange={this.handleChange}
+                value={this.state.valueInput}
+                placeholder="Type Anything"
+              />
+            </div>
+            <div>
+              <button onClick={(e) => this.checkSpace(e)} type="submit" id = "mybutton" class="btn btn-primary mb-3">
+                Show!
+              </button>
+            </div>
+          </div>
           {/* <input id="Sub" type="submit" value="Submit" /> */}
         </form>
         <br />

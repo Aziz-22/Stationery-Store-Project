@@ -4,6 +4,7 @@ body {
   background-image: linear-gradient(to right, snow, lightblue);
 }
 
+
 .link-tags {
   background-color: aliceblue;
   display: flex;
@@ -201,8 +202,14 @@ td {
 
   margin-left: 8vw;
   margin-bottom: 10vh;
-  font-size: larger;
+  font-size: large;
+  cursor: pointer;
 
+}
+.nav-link:hover{
+
+  color: darkblue;
+  font-size: larger
 }
 
 #AddTitle {

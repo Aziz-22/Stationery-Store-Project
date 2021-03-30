@@ -178,59 +178,59 @@ class App extends Component {
               {" "}
               What Do You Want?
             </h3>
-
             <ul class="nav justify-content-center nav-pills">
               <li class="nav-item">
                 <NavLink
-                className="nav-link" role="tab"
-                style={{ textDecoration: "none" }}
-                to="/Add-Page"
-              >
-                Add A Product
-              </NavLink>
+                  className="nav-link"
+                  role="tab"
+                  style={{ textDecoration: "none" }}
+                  to="/Add-Page"
+                >
+                  Add A Product
+                </NavLink>
                 {/* <a class="nav-link active" aria-current="page" href="#">
                   Active
                 </a> */}
               </li>
               <li class="nav-item">
-                 <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="edit-link"
-                className = "nav-link" data-toggle="pill" role="tab" 
-                to="/Edit_Page"
-              >
-                Edit On A Product
-              </NavLink>
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName="edit-link"
+                  className="nav-link"
+                  data-toggle="pill"
+                  role="tab"
+                  to="/Edit_Page"
+                >
+                  Edit On A Product
+                </NavLink>
               </li>
               <li class="nav-item">
                 <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="delete-link"
+                  style={{ textDecoration: "none" }}
+                  activeClassName="delete-link"
                   className="nav-link"
-                data-toggle = "pill"
-                to="/Delete_Page"
-              >
-                Delete A Product/s
-              </NavLink>
+                  data-toggle="pill"
+                  to="/Delete_Page"
+                >
+                  Delete A Product/s
+                </NavLink>
               </li>
               <li class="nav-item">
-                 <NavLink
-                style={{ textDecoration: "none" }}
-                activeClassName="get-link"
-                className="nav-link"
-                data-toggle = "pill"
-                to="/Get_All"
-              >
-                Get All Products
-              </NavLink>
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName="get-link"
+                  className="nav-link"
+                  data-toggle="pill"
+                  to="/Get_All"
+                >
+                  Get All Products
+                </NavLink>
               </li>
             </ul>{" "}
             {/* <div className="link-tags"> */}
-              {/* We can use Link tag, but I've used NavLink to styling purpose only because if we have used NavLink we can't add styling on it. */}
-
-             
+            {/* We can use Link tag, but I've used NavLink to styling purpose only because if we have used NavLink we can't add styling on it. */}
             {/* </div> */}
-            {/* Line 176: Here To set the Home Component as Default Page. */}
+            {/* Line 234: Here To set the Home Component as Default Page. */}
             <Route exact path="/" component={Home}></Route>
             <Route exact path="/Home" component={Home}></Route>
             <Route

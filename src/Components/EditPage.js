@@ -21,17 +21,17 @@ export default class Home extends Component {
 
   handleChangeName(event) {
     this.setState({
-      valueName: event.target.value,
+      editName: event.target.value,
     });
   }
   handleChangeQuan(event) {
     this.setState({
-      valueQuan: event.target.value,
+      editQuan: event.target.value,
     });
   }
 
   boxModal = (pName, pQuan) => {
-    console.log("Modal For => ", pName, " ", pQuan);
+    console.log("Modal For => ",pName, " ", pQuan);
 
     // To Hold The Previous Values For Product Name And Quantity
     this.setState({
@@ -109,6 +109,7 @@ export default class Home extends Component {
                 this.boxModal(eachName, this.props.productProps.quan[eachQuan])
               }
             >
+              
               Edit
             </td>
           </tr>
@@ -144,9 +145,10 @@ export default class Home extends Component {
             </span>
             <form>
               <div className="my-form-group">
-                <label className="form-label">What Do You Want To Add?</label>{" "}
+                <label className="form-label">Edit a Product</label>{" "}
                 <input
-                  value={this.state.valueName}
+                  // {...console.log("150: ", this.state.editName , this.state.editQuan )}
+                  value={this.state.editName}
                   onChange={this.handleChangeName}
                   type="text"
                   id="user-input-pName-edit"
@@ -160,7 +162,7 @@ export default class Home extends Component {
                 <div className="col-sm-3">
                   <label className="form-label-edit">Quantity </label>{" "}
                   <input
-                    value={this.state.valueQuan}
+                    value={this.state.editQuan}
                     onChange={this.handleChangeQuan}
                     type="number"
                     id="user-input-pQuan-edit"

@@ -112,7 +112,7 @@ export default class APIPage extends Component {
             <div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="userInput"
                 onChange={this.handleChange}
                 value={this.state.valueInput}
@@ -120,7 +120,7 @@ export default class APIPage extends Component {
               />
             </div>
             <div>
-              <button onClick={(e) => this.checkSpace(e)} type="submit" id = "mybutton" class="btn btn-primary mb-3">
+              <button onClick={(e) => this.checkSpace(e)} type="submit" id = "mybutton" className="btn btn-primary mb-3">
                 Show!
               </button>
             </div>

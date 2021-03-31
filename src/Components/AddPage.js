@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
+import swal from "sweetalert";
 import EditPage from "./EditPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 export default class Add_Page extends Component {
@@ -43,36 +44,36 @@ export default class Add_Page extends Component {
     return (
       <Router>
         <div>
-          <h1 class="text-center" id="AddTitle">Add A Product</h1>
+          <h1 className="text-center" id="AddTitle">Add A Product</h1>
 
           
 
           <div>
             <form>
         
-              <div class="form-floating mb-3">
+              <div className="form-floating mb-3">
                 <input
-                  type="email"
-                  class="form-control"
+                  type="text"
+                  className="form-control"
                   id="form-control-input1-id"
                   value={this.state.valueName}
                   onChange={this.handleChangeName}
                   placeholder="Type Here Your Product"
                 />
-                <label for="form-control-input1-id" className="form-label">
+                <label htmlFor="form-control-input1-id" className="form-label">
                   What Do You Want To Add?
                 </label>
               </div>
-              <div class="form-floating">
+              <div className="form-floating">
                 <input
                   type="number"
-                  class="form-control"
+                  className="form-control"
                   id="form-control-input2-id"
                   value={this.state.valueQuan}
                   onChange={this.handleChangeQuan}
                   placeholder="How Many Do you Want?"
                 />
-                <label for="form-control-input2-id" className="form-label">
+                <label htmlFor="form-control-input2-id" className="form-label">
                   Quantity
                 </label>
               </div>

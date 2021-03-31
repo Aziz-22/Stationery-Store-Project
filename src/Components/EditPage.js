@@ -21,12 +21,12 @@ export default class Home extends Component {
 
   handleChangeName(event) {
     this.setState({
-      editName: event.target.value,
+      valueName: event.target.value,
     });
   }
   handleChangeQuan(event) {
     this.setState({
-      editQuan: event.target.value,
+      valueQuan: event.target.value,
     });
   }
 
@@ -35,6 +35,8 @@ export default class Home extends Component {
 
     // To Hold The Previous Values For Product Name And Quantity
     this.setState({
+      valueName: pName,
+      valueQuan: pQuan,
       editName: pName,
       editQuan: pQuan,
     });
@@ -58,17 +60,16 @@ export default class Home extends Component {
     e.preventDefault();
     var modal = document.getElementById("myModal");
     // let x = this.boxModal(m);
-
-    console.log("I Wanna Edit => ", this.state.editName);
-    console.log("I Wanna Edit Numbre => ", this.state.editQuan);
+   
 
     // These Two Variables To Hold The Place Of THe Previous values.
     let knowIndexName = this.props.productProps.name.indexOf(
       this.state.editName
     );
-    let knowIndexQuan = this.props.productProps.quan.indexOf(
-      this.state.editQuan
-    );
+    console.log("IndexName: ", knowIndexName)
+    let knowIndexQuan = this.props.productProps.quan.indexOf(this.state.editQuan);
+    console.log("IndexQuan: ", knowIndexQuan)
+
     //  Then replace it with new ones
     this.props.productProps.name[knowIndexName] = newProductName;
     this.props.productProps.quan[knowIndexQuan] = newQuan;
@@ -80,6 +81,7 @@ export default class Home extends Component {
         quan: this.props.productProps.quan,
       },
     });
+
     alert("Edit Successfully");
     // Here To Close The Box modal after edit operation done.
     modal.style.display = "none";
@@ -121,9 +123,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container">
-         <p className="text-center">
+         <span className="text-center">
             <h1>Your Cart</h1>
-          </p>
+         </span>
 
         <table className="table">
           <thead>
@@ -143,12 +145,66 @@ export default class Home extends Component {
             <span className="close" onClick={this.close}>
               &times;
             </span>
+            <div>
             <form>
+        
+              <div className="form-floating mb-3">
+                <input
+                  // {...console.log("150: ", this.state.editName , this.state.editQuan )}
+                  value={this.state.valueName}
+                  onChange={this.handleChangeName}
+                  type="text"
+                  id="edit-input-id"
+                  placeholder="Type Your Product Here"
+                  className="form-control"
+                />
+                <label htmlFor="form-control-input1-id" className="form-label">
+                  Edit a Product
+                </label>
+              </div>
+              <div className="form-floating">
+                 <input
+                    value={this.state.valueQuan}
+                    onChange={this.handleChangeQuan}
+                    type="number"
+                    id="edit-input-id"
+                    placeholder="How Many Pieces You Want?"
+                    className="form-control"
+                  />
+                <label htmlFor="form-control-input2-id" className="form-label">
+                  Quantity
+                </label>
+              </div>
+              
+              
+              {/* <label> Do You Want To Upload an Image?</label>{" "}
+              <input type="file" id="user-input-upload" />
+              <br />
+              <br /> */}
+              <input
+                id = "inputEditBtn"
+                type="submit"
+                value="Edit Product"
+                className="btn btn-success"
+                onClick={(e) =>
+                  this.Edit_Operation(
+                    e,
+                    this.state.valueName,
+                    this.state.valueQuan
+                  )
+                }
+              />
+           
+            </form>
+
+            
+          </div>
+            {/* <form>
               <div className="my-form-group">
                 <label className="form-label">Edit a Product</label>{" "}
                 <input
                   // {...console.log("150: ", this.state.editName , this.state.editQuan )}
-                  value={this.state.editName}
+                  value={this.state.valueName}
                   onChange={this.handleChangeName}
                   type="text"
                   id="user-input-pName-edit"
@@ -162,7 +218,7 @@ export default class Home extends Component {
                 <div className="col-sm-3">
                   <label className="form-label-edit">Quantity </label>{" "}
                   <input
-                    value={this.state.editQuan}
+                    value={this.state.valueQuan}
                     onChange={this.handleChangeQuan}
                     type="number"
                     id="user-input-pQuan-edit"
@@ -188,7 +244,7 @@ export default class Home extends Component {
                 }
               />
               <input id = "inputBtn" type="reset" value="Reset" className="btn btn-danger" />
-            </form>
+            </form> */}
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
+import swal from "sweetalert";
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -82,7 +83,10 @@ export default class Home extends Component {
       },
     });
 
-    alert("Edit Successfully");
+     swal({
+      title: "Edit Successfully",
+      icon: "success",
+    });
     // Here To Close The Box modal after edit operation done.
     modal.style.display = "none";
     // this.goCheck();

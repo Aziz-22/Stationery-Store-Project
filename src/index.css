@@ -163,11 +163,23 @@ td {
 .counter-style {
   text-decoration: none;
   color: red;
-  background-color: aliceblue;
   padding: 0 10px;
   font-size: 85%;
   /* To Make It At The Top Of The Icon*/
   vertical-align: super;
+}
+
+.newstyle{
+
+animation-name: example;
+animation-duration: 1s;
+
+}
+
+@keyframes example{
+
+  from {background-color: orange;}
+  to {background-color: gold;}
 }
 
 .fave-link {

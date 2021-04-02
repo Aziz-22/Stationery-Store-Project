@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
+import swal from "sweetalert";
 export default class DeletePage extends Component {
   myArr = this.props.productProps.name;
   myArrQuan = this.props.productProps.quan;
@@ -19,7 +20,12 @@ export default class DeletePage extends Component {
         quan: this.myArrQuan,
       },
     });
-    alert("Deleted All");
+    swal({
+
+      title: "Deleted All",
+      text: "Deleted Successfully",
+      icon: "success"
+    })
   };
 
   // This method for delete a specific row in the cart
@@ -52,7 +58,12 @@ export default class DeletePage extends Component {
       },
     });
 
-    alert("Deleted Successfully ");
+      swal({
+      title: "Deleted Successfully",
+      icon: "success"
+    
+    });
+    
   };
 
   // Here To Print That Table as dynamically with a new product name and quantity

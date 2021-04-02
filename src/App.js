@@ -9,6 +9,7 @@ import GetAll from "./Components/GetAll";
 import Fave from "./Components/Fave";
 import logo from "./Images/Logo_Stationery.PNG";
 import swal from "sweetalert";
+import $ from "jquery";
 // This Import For Brings Icons From react-icons/ai
 import { RiHeartAddLine } from "react-icons/ri";
 
@@ -51,8 +52,7 @@ class App extends Component {
       },
     });
     swal({
-      title: "Success",
-      text: "Added Successfully",
+      title: "Added Successfully",
       icon: "success",
     });
     console.log("Added Success");
@@ -75,7 +75,17 @@ class App extends Component {
     console.log(this.state.faveObjects.isFaveArrayName);
     console.log(this.state.faveObjects.isFaveArrayQuan);
 
-    alert("Added Successfully");
+    $("span").removeClass("newstyle");
+    
+
+    
+
+    swal({
+      title: "Added Successfully",
+      icon: "success"
+    
+    });
+    $("span").addClass("newstyle");
   };
 
   removeOperation = (removeName, removeQuan) => {

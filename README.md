@@ -98,4 +98,4 @@ _I would like to allow a user to add an image for a product, also make some vali
 
 # Links
 
-- The Website http://localhost:3000/AbdulazizAlsaif/Project2-Stationery-Store
+- The Website https://aziz-22.github.io/Stationery-Store-Project/

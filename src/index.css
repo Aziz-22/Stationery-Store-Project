@@ -305,7 +305,7 @@ animation-duration: 1s;
 
  
   .form-control {
-    width: fit-content !important;
+    width: 50vw !important;
   }
 
   .form-label {
@@ -339,7 +339,7 @@ animation-duration: 1s;
 
 
   .form-control {
-    width: fit-content !important;
+    width: 50vw !important;
     margin: auto !important;
     display: block !important;
     height: auto;

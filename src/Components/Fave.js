@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 
 export default class Fave extends Component {
-
-
   constructor(props) {
-    
     super(props);
 
     this.removeFave = this.removeFave.bind(this);
   }
-  removeFave = (removeName,removeQuan) => {
-    
-    console.log("RemoveFave = ", removeName, " ", removeQuan)
-    
-    this.props.removeProps(removeName , removeQuan);
+  removeFave = (removeName, removeQuan) => {
+    console.log("RemoveFave = ", removeName, " ", removeQuan);
+
+    this.props.removeProps(removeName, removeQuan);
 
     //  if (this.props.faveProps.isFaveArrayName.includes(removeName)) {
     //   let knowIndex = this.props.faveProps.isFaveArrayName.indexOf(removeName);
@@ -32,12 +28,11 @@ export default class Fave extends Component {
     //     isFaveArrayQuan: this.props.faveProps.isFaveArrayQuan,
     //   }
     // })
-   
+
     // alert("Removed Successfully ");
+  };
 
-  }
-
-    goCheck = () => {
+  goCheck = () => {
     let counter = 1;
     if (this.props.faveProps.isFaveArrayName.length > 0) {
       return this.props.faveProps.isFaveArrayName.map((eachName, eachQuan) => {
@@ -46,7 +41,17 @@ export default class Fave extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.faveProps.isFaveArrayQuan[eachQuan]}</td>
-            <td id="remove-link" onClick = {() => this.removeFave(eachName, this.props.faveProps.isFaveArrayQuan[eachQuan])}>Remove From Favorite List</td>
+            <td
+              id="remove-link"
+              onClick={() =>
+                this.removeFave(
+                  eachName,
+                  this.props.faveProps.isFaveArrayQuan[eachQuan]
+                )
+              }
+            >
+              Remove From Favorite List
+            </td>
           </tr>
         );
       });
@@ -55,7 +60,9 @@ export default class Fave extends Component {
   render() {
     return (
       <div className="container">
-        <h1 style={{color: "red"}}>Your Favorite Products</h1>
+        <p className="text-center">
+          <h1 style={{ color: "red" }}>Your Favorite Products</h1>
+        </p>
 
         <table className="table">
           <thead>

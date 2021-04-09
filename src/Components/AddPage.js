@@ -40,6 +40,19 @@ export default class Add_Page extends Component {
     this.props.test(this.state.valueName, this.state.valueQuan);
   };
 
+  // This for reset the inputs
+
+  ResetOperation = (e) => {
+    
+    e.preventDefault();
+
+    this.setState({
+
+      valueName: "",
+      valueQuan: ""
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -95,6 +108,7 @@ export default class Add_Page extends Component {
                 type="reset"
                 value="Reset"
                 className="btn btn-danger"
+                onClick={this.ResetOperation}
               />
             </form>
 

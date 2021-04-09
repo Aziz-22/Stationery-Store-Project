@@ -254,8 +254,8 @@ animation-duration: 1s;
 #form-control-input2-id {
 
   width: 50vw;
-  display: inline-block;
-  margin-left: 15vw;
+  display: block;
+  margin:auto
 }
 
 #inputBtn {
@@ -265,7 +265,7 @@ animation-duration: 1s;
 }
 
 .form-label {
-  left: 16vw !important;
+  left: 19vw !important;
 }
 
 /*! Media Queries */
@@ -306,10 +306,11 @@ animation-duration: 1s;
  
   .form-control {
     width: 50vw !important;
+  
   }
 
   .form-label {
-    left: 15vw !important;
+    left: 20vw !important;
   }
 
   #inputBtn {

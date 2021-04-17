@@ -128,7 +128,7 @@ class App extends Component {
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="container-fluid">
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/Stationery-Store-Project">
                   <img
                     src={logo}
                     alt=""

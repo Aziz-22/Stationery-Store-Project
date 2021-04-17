@@ -91,10 +91,10 @@ export default class APIPage extends Component {
 
     return (
       <div>
-        <p className="text-center">
+        <span className="text-center">
           <h2>API</h2>
           <h3>Type Anything To See Images As Gif For That.</h3>
-        </p>
+        </span>
 
         <form id="myFor" method="GET">
           {/* <input

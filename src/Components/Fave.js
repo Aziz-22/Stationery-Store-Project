@@ -60,9 +60,9 @@ export default class Fave extends Component {
   render() {
     return (
       <div className="container">
-        <p className="text-center">
+        <span className="text-center">
           <h1 style={{ color: "red" }}>Your Favorite Products</h1>
-        </p>
+        </span>
 
         <table className="table">
           <thead>

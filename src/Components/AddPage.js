@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../index.css";
-import swal from "sweetalert";
 import EditPage from "./EditPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 export default class Add_Page extends Component {

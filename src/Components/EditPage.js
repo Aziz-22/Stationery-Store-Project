@@ -32,7 +32,7 @@ export default class Home extends Component {
   }
 
   boxModal = (pName, pQuan) => {
-    console.log("Modal For => ",pName, " ", pQuan);
+    console.log("Modal For => ", pName, " ", pQuan);
 
     // To Hold The Previous Values For Product Name And Quantity
     this.setState({
@@ -61,32 +61,43 @@ export default class Home extends Component {
     e.preventDefault();
     var modal = document.getElementById("myModal");
     // let x = this.boxModal(m);
-   
 
-    // These Two Variables To Hold The Place Of THe Previous values.
-    let knowIndexName = this.props.productProps.name.indexOf(
-      this.state.editName
-    );
-    console.log("IndexName: ", knowIndexName)
-    let knowIndexQuan = this.props.productProps.quan.indexOf(this.state.editQuan);
-    console.log("IndexQuan: ", knowIndexQuan)
+    swal({
+      title: "Are You Sure?",
+      text: "Are you sure you want to edit on this products?",
+      icon: "warning",
+      buttons: true, // This button to tell the Sweetalert to add a cancel button with confirmation button
+      dangerMode: true, // The focus will automatically be set on the cancel button instead of the confirm button
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal({
+          title: "Edit Successfully",
+          icon: "success",
+        });
+        // These Two Variables To Hold The Place Of THe Previous values.
+        let knowIndexName = this.props.productProps.name.indexOf(
+          this.state.editName
+        );
+        console.log("IndexName: ", knowIndexName);
+        let knowIndexQuan = this.props.productProps.quan.indexOf(
+          this.state.editQuan
+        );
+        console.log("IndexQuan: ", knowIndexQuan);
 
-    //  Then replace it with new ones
-    this.props.productProps.name[knowIndexName] = newProductName;
-    this.props.productProps.quan[knowIndexQuan] = newQuan;
+        //  Then replace it with new ones
+        this.props.productProps.name[knowIndexName] = newProductName;
+        this.props.productProps.quan[knowIndexQuan] = newQuan;
 
-    // To Update the arrays and re-rendering again with new list
-    this.setState({
-      objectOfProducts: {
-        name: this.props.productProps.name,
-        quan: this.props.productProps.quan,
-      },
+        // To Update the arrays and re-rendering again with new list
+        this.setState({
+          objectOfProducts: {
+            name: this.props.productProps.name,
+            quan: this.props.productProps.quan,
+          },
+        });
+      }
     });
 
-     swal({
-      title: "Edit Successfully",
-      icon: "success",
-    });
     // Here To Close The Box modal after edit operation done.
     modal.style.display = "none";
     // this.goCheck();
@@ -115,7 +126,6 @@ export default class Home extends Component {
                 this.boxModal(eachName, this.props.productProps.quan[eachQuan])
               }
             >
-              
               Edit
             </td>
           </tr>
@@ -127,9 +137,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container">
-         <span className="text-center">
-            <h1>Your Cart</h1>
-         </span>
+        <span className="text-center">
+          <h1>Your Cart</h1>
+        </span>
 
         <table className="table">
           <thead>
@@ -150,24 +160,26 @@ export default class Home extends Component {
               &times;
             </span>
             <div>
-            <form>
-        
-              <div className="form-floating mb-3">
-                <input
-                  // {...console.log("150: ", this.state.editName , this.state.editQuan )}
-                  value={this.state.valueName}
-                  onChange={this.handleChangeName}
-                  type="text"
-                  id="edit-input-id"
-                  placeholder="Type Your Product Here"
-                  className="form-control"
-                />
-                <label htmlFor="form-control-input1-id" className="form-label">
-                  Edit a Product
-                </label>
-              </div>
-              <div className="form-floating">
-                 <input
+              <form>
+                <div className="form-floating mb-3">
+                  <input
+                    // {...console.log("150: ", this.state.editName , this.state.editQuan )}
+                    value={this.state.valueName}
+                    onChange={this.handleChangeName}
+                    type="text"
+                    id="edit-input-id"
+                    placeholder="Type Your Product Here"
+                    className="form-control"
+                  />
+                  <label
+                    htmlFor="form-control-input1-id"
+                    className="form-label"
+                  >
+                    Edit a Product
+                  </label>
+                </div>
+                <div className="form-floating">
+                  <input
                     value={this.state.valueQuan}
                     onChange={this.handleChangeQuan}
                     type="number"
@@ -175,34 +187,33 @@ export default class Home extends Component {
                     placeholder="How Many Pieces You Want?"
                     className="form-control"
                   />
-                <label htmlFor="form-control-input2-id" className="form-label">
-                  Quantity
-                </label>
-              </div>
-              
-              
-              {/* <label> Do You Want To Upload an Image?</label>{" "}
+                  <label
+                    htmlFor="form-control-input2-id"
+                    className="form-label"
+                  >
+                    Quantity
+                  </label>
+                </div>
+
+                {/* <label> Do You Want To Upload an Image?</label>{" "}
               <input type="file" id="user-input-upload" />
               <br />
               <br /> */}
-              <input
-                id = "inputEditBtn"
-                type="submit"
-                value="Edit Product"
-                className="btn btn-success"
-                onClick={(e) =>
-                  this.Edit_Operation(
-                    e,
-                    this.state.valueName,
-                    this.state.valueQuan
-                  )
-                }
-              />
-           
-            </form>
-
-            
-          </div>
+                <input
+                  id="inputEditBtn"
+                  type="submit"
+                  value="Edit Product"
+                  className="btn btn-success"
+                  onClick={(e) =>
+                    this.Edit_Operation(
+                      e,
+                      this.state.valueName,
+                      this.state.valueQuan
+                    )
+                  }
+                />
+              </form>
+            </div>
             {/* <form>
               <div className="my-form-group">
                 <label className="form-label">Edit a Product</label>{" "}

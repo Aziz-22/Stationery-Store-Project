@@ -73,7 +73,7 @@ export default class Add_Page extends Component {
                   placeholder="Type Here Your Product"
                 />
                 <label htmlFor="form-control-input1-id" className="form-label">
-                  What Do You Want To Add?
+                  What do You Want to Add?
                 </label>
               </div>
               <div className="form-floating">

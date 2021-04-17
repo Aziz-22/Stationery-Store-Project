@@ -172,7 +172,7 @@ td {
 .newstyle{
 
 animation-name: example;
-animation-duration: 1s;
+animation-duration: 2s;
 
 }
 
@@ -188,6 +188,13 @@ animation-duration: 1s;
 
 /** New Styles */
 
+
+.ownImage{
+
+  width: 50vw;
+  /* display: block; */
+  height: auto;
+}
 #edit-input-id {
 
   margin: auto ;

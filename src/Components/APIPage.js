@@ -63,7 +63,9 @@ export default class APIPage extends Component {
 
           const img = document.createElement("img");
 
+          img.classList.add("ownImage");
           img.src = dataImage;
+          
 
           divContainer.appendChild(img);
         }

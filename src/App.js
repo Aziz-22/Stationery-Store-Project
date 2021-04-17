@@ -112,7 +112,12 @@ class App extends Component {
       },
     });
 
-    alert("Removed Successfully ");
+    swal({
+
+      title: "Removed Successfully",
+      icon: "success"
+
+    });
   };
 
   render() {
@@ -291,6 +296,7 @@ class App extends Component {
               component={() => (
                 <Fave
                   faveProps={this.state.faveObjects}
+                  productProps={this.state.objectOfProducts}
                   removeProps={this.removeOperation}
                 />
               )}

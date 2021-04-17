@@ -33,14 +33,16 @@ export default class Fave extends Component {
   };
 
   goCheck = () => {
+    console.log("FAVE: 36:", this.props.productProps)
+    console.log("FAVE: 37:", this.props.faveProps)
     let counter = 1;
     if (this.props.faveProps.isFaveArrayName.length > 0) {
-      return this.props.faveProps.isFaveArrayName.map((eachName, eachQuan) => {
+      return this.props.productProps.name.map((eachName, eachQuan) => {
         return (
           <tr key={counter}>
             <td>{counter++}</td>
             <td>{eachName}</td>
-            <td>{this.props.faveProps.isFaveArrayQuan[eachQuan]}</td>
+            <td>{this.props.productProps.quan[eachQuan]}</td>
             <td
               id="remove-link"
               onClick={() =>

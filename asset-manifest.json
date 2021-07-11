@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Stationery-Store-Project/static/css/main.21e60866.chunk.css",
-    "main.js": "/Stationery-Store-Project/static/js/main.35942ef2.chunk.js",
-    "main.js.map": "/Stationery-Store-Project/static/js/main.35942ef2.chunk.js.map",
+    "main.js": "/Stationery-Store-Project/static/js/main.b641206d.chunk.js",
+    "main.js.map": "/Stationery-Store-Project/static/js/main.b641206d.chunk.js.map",
     "runtime-main.js": "/Stationery-Store-Project/static/js/runtime-main.74c5eca5.js",
     "runtime-main.js.map": "/Stationery-Store-Project/static/js/runtime-main.74c5eca5.js.map",
     "static/js/2.29460d59.chunk.js": "/Stationery-Store-Project/static/js/2.29460d59.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.74c5eca5.js",
     "static/js/2.29460d59.chunk.js",
     "static/css/main.21e60866.chunk.css",
-    "static/js/main.35942ef2.chunk.js"
+    "static/js/main.b641206d.chunk.js"
   ]
 }

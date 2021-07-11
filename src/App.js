@@ -58,10 +58,67 @@ class App extends Component {
     console.log("Added Success");
   };
 
+  deleteFun = (deletedRowName, deletedRowQuan, pName, quan) => {
+    console.log("ROW: ", deletedRowName , deletedRowQuan);
+    console.log("63: ", pName, quan);
+
+      swal({
+      title: "Are You Sure?",
+      text: "Are you sure you want to delete this products?",
+      icon: "warning",
+      buttons: true, // This button to tell the Sweetalert to add a cancel button with confirmation button
+      dangerMode: true, // The focus will automatically be set on the cancel button instead of the confirm button
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal({
+          title: "Delete Product",
+          text: "Deleted Successfully",
+          icon: "success",
+        });
+         // this for deleted from the favorite section if it is there.
+        if (this.state.faveObjects.isFaveArrayName.includes(deletedRowName)) {
+          
+          let knowIndex = this.state.faveObjects.isFaveArrayName.indexOf(deletedRowName);
+          console.log(knowIndex)
+        dd
+          this.state.faveObjects.isFaveArrayName.splice(knowIndex, 1);
+
+        }
+
+        if (this.state.objectOfProducts.name.includes(deletedRowName)) {
+          
+          let knowIndex = this.state.objectOfProducts.name.indexOf(deletedRowName);
+          this.state.objectOfProducts.name.splice(knowIndex, 1);
+        }
+        
+        if (this.state.objectOfProducts.quan.includes(deletedRowQuan)) {
+          let knowIndex = this.state.objectOfProducts.quan.indexOf(deletedRowQuan);
+          this.state.objectOfProducts.quan.splice(knowIndex, 1);
+        }
+
+        console.log("81: ", this.state.objectOfProducts)
+        // To Update the arrays and re-rendering again with new list
+        this.setState({
+          objectOfProducts: {
+            name: this.state.objectOfProducts.name,
+            quan: this.state.objectOfProducts.quan,
+          },
+          // faveObjects: {
+          //   isFaveArrayName: this.state.objectOfProducts.name,
+          //   isFaveArrayQuan: this.state.objectOfProducts.quan,
+          // }
+        });
+        console.log("93: ", this.state.objectOfProducts)
+        console.log("88: ", this.state.faveObjects)
+
+      }
+    });
+  }
+
   myFave = (faveName, faveQuan) => {
     // This Function For Add a marked product to the favorite array.
 
-    console.log(faveName, faveQuan);
+    console.log("111: ", faveName, faveQuan);
     let newFaveArrayName = this.state.faveObjects.isFaveArrayName;
     newFaveArrayName.push(faveName);
     let newFaveArrayQuan = this.state.faveObjects.isFaveArrayQuan;
@@ -72,7 +129,7 @@ class App extends Component {
         isFaveArrayQuan: newFaveArrayQuan,
       },
     });
-    console.log(this.state.faveObjects.isFaveArrayName);
+    console.log("22:",this.state.faveObjects.isFaveArrayName);
     console.log(this.state.faveObjects.isFaveArrayQuan);
 
     $("span").removeClass("newstyle");
@@ -166,6 +223,8 @@ class App extends Component {
                         >
                           <RiHeartAddLine />
                           <span className="counter-style">
+                            {console.log(this.state.faveObjects)}
+                            {console.log(this.state.faveObjects.isFaveArrayName.length)}
                             {this.state.faveObjects.isFaveArrayName.length}
                           </span>
                         </h2>
@@ -270,8 +329,10 @@ class App extends Component {
               path="/Delete_Page"
               component={() => (
                 <DeletePage
+                  dOperation = {this.deleteFun}
                   productProps={this.state.objectOfProducts}
                   myFun={this.delete}
+                  isfave = {this.state.faveObjects}
                 />
               )}
             ></Route>

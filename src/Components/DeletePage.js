@@ -7,6 +7,7 @@ export default class DeletePage extends Component {
 
   // This Method For Deleting All The Products When the user click the button.
   deleteAll = () => {
+   
     console.log("Delete All");
 
     swal({
@@ -32,57 +33,73 @@ export default class DeletePage extends Component {
             name: this.myArr,
             quan: this.myArrQuan,
           },
+          faveObjects: {
+            isFaveArrayName: this.myArr,
+            isFaveArrayQuan: this.myArrQuan,
+          }
         });
+        console.log("39: ", this.props.isfave)
       }
     });
   };
 
   // This method for delete a specific row in the cart
   deleteProduct = (deletedRowName, deletedRowQuan) => {
+    // e.preventDefault();
     // console.log(this.myArr);
     console.log(deletedRowName, deletedRowQuan);
-
-    // // Here To Check If that product exist in the array or not. If so we want to the where is the place of that product by using indexOf() and then use splice method to remove it.
-    // if (this.myArr.includes(deletedRow)) {
-    //   let knowIndex = this.myArr.indexOf(deletedRow);
-    //   this.myArr.splice(knowIndex, 1);
-    // }
-
-    // alert("Deleted Successfully ");
-    console.log("Delete From The Delete File ", deletedRowName, deletedRowQuan);
-
-    swal({
-      title: "Are You Sure?",
-      text: "Are you sure you want to delete this products?",
-      icon: "warning",
-      buttons: true, // This button to tell the Sweetalert to add a cancel button with confirmation button
-      dangerMode: true, // The focus will automatically be set on the cancel button instead of the confirm button
-    }).then((willDelete) => {
-      if (willDelete) {
-        swal({
-          title: "Delete Product",
-          text: "Deleted Successfully",
-          icon: "success",
-        });
-        if (this.myArr.includes(deletedRowName)) {
-          let knowIndex = this.myArr.indexOf(deletedRowName);
-          this.myArr.splice(knowIndex, 1);
-        }
-        if (this.myArrQuan.includes(deletedRowQuan)) {
-          let knowIndex = this.myArrQuan.indexOf(deletedRowQuan);
-          this.myArrQuan.splice(knowIndex, 1);
-        }
-
-        // To Update the arrays and re-rendering again with new list
-        this.setState({
-          objectOfProducts: {
-            name: this.myArr,
-            quan: this.myArrQuan,
-          },
-        });
-      }
-    });
+    this.props.dOperation(deletedRowName, deletedRowQuan, this.myArr, this.myArrQuan);
   };
+
+  //   // // Here To Check If that product exist in the array or not. If so we want to the where is the place of that product by using indexOf() and then use splice method to remove it.
+  //   // if (this.myArr.includes(deletedRow)) {
+  //   //   let knowIndex = this.myArr.indexOf(deletedRow);
+  //   //   this.myArr.splice(knowIndex, 1);
+  //   // }
+
+  //   // alert("Deleted Successfully ");
+  //   console.log("Delete From The Delete File ", deletedRowName, deletedRowQuan);
+
+  //   swal({
+  //     title: "Are You Sure?",
+  //     text: "Are you sure you want to delete this products?",
+  //     icon: "warning",
+  //     buttons: true, // This button to tell the Sweetalert to add a cancel button with confirmation button
+  //     dangerMode: true, // The focus will automatically be set on the cancel button instead of the confirm button
+  //   }).then((willDelete) => {
+  //     if (willDelete) {
+  //       swal({
+  //         title: "Delete Product",
+  //         text: "Deleted Successfully",
+  //         icon: "success",
+  //       });
+  //       if (this.myArr.includes(deletedRowName)) {
+  //         let knowIndex = this.myArr.indexOf(deletedRowName);
+  //         this.myArr.splice(knowIndex, 1);
+  //       }
+  //       if (this.myArrQuan.includes(deletedRowQuan)) {
+  //         let knowIndex = this.myArrQuan.indexOf(deletedRowQuan);
+  //         this.myArrQuan.splice(knowIndex, 1);
+  //       }
+
+  //       console.log("81: ", this.myArr)
+  //       // To Update the arrays and re-rendering again with new list
+  //       this.setState({
+  //         objectOfProducts: {
+  //           name: this.myArr,
+  //           quan: this.myArrQuan,
+  //         },
+  //         faveObjects: {
+  //           isFaveArrayName: this.myArr,
+  //           isFaveArrayQuan: this.myArrQuan,
+  //         }
+  //       });
+  //       console.log("93: ", this.myArr)
+  //       console.log("88: ", this.state.faveObjects)
+
+  //     }
+  //   });
+  // };
 
   // Here To Print That Table as dynamically with a new product name and quantity
   goCheck = () => {

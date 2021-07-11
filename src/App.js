@@ -80,7 +80,6 @@ class App extends Component {
           
           let knowIndex = this.state.faveObjects.isFaveArrayName.indexOf(deletedRowName);
           console.log(knowIndex)
-        dd
           this.state.faveObjects.isFaveArrayName.splice(knowIndex, 1);
 
         }

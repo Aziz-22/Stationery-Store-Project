@@ -15,12 +15,26 @@ export default class Add_Page extends Component {
 
       valueName: "",
       valueQuan: "",
+      images: null,
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeQuan = this.handleChangeQuan.bind(this);
+    this.handleChangeImage = this.handleChangeImage.bind(this);
+    // this.imageHandle = this.imageHandle.bind(this);
   }
 
+  // imageHandle = (event) =>{
+  
+  //   if (event.target.files && event.target.files[0]) {
+      
+  //     let img = event.target.files[0];
+  //     this.setState({
+
+  //       images: URL.createObjectURL(img)
+  //     });
+  //   }
+  // }
   handleChangeName(event) {
     this.setState({
       valueName: event.target.value,
@@ -31,12 +45,39 @@ export default class Add_Page extends Component {
       valueQuan: event.target.value,
     });
   }
+   handleChangeImage(event) {
+    // this.setState({
+    //   images: URL.createObjectURL(event.target.files[0].file),
+    // });
+     const tempArr = [];
+
+    [...event.target.files].forEach(file => {
+      console.log("file >>> ", file.name);
+
+      // tempArr.push({
+      //   data: file,
+      //   url: URL.createObjectURL(file)
+      // });
+
+     this.setState({
+
+        images: URL.createObjectURL(file),
+      })
+
+      // console.log("pictures >> ", pictures);
+    });
+     
+
+    // setPictures(tempArr);
+    
+    
+  }
   Add_Operation = (e) => {
     // To Prevent The Refresh The Page And Fire Toggle
     e.preventDefault();
 
-    console.log("Name ", this.state.valueName, "Quan ", this.state.valueQuan);
-    this.props.test(this.state.valueName, this.state.valueQuan);
+    console.log("Name ", this.state.valueName, "Quan ", this.state.valueQuan, "IMAGE: ", this.state.images);
+    this.props.test(this.state.valueName, this.state.valueQuan, this.state.images);
   };
 
   // This for reset the inputs
@@ -56,11 +97,12 @@ export default class Add_Page extends Component {
     return (
       <Router>
         <div>
-          <h1 className="text-center" id="AddTitle">Add A Product</h1>
+          <h1 className="text-center" id="AddTitle">Add a Product</h1>
 
           
 
           <div>
+         
             <form>
         
               <div className="form-floating mb-3">
@@ -90,11 +132,10 @@ export default class Add_Page extends Component {
                 </label>
               </div>
               
+              <br></br>
+              <label htmlFor="user-input-upload" className="form-label-upload"> Do You Want To Upload an Image?</label>{" "}
+              <input type="file" id="user-input-upload" onChange={ this.handleChangeImage}/>
               
-              {/* <label> Do You Want To Upload an Image?</label>{" "}
-              <input type="file" id="user-input-upload" />
-              <br />
-              <br /> */}
               <input
                 id="inputBtn"
                 type="submit"

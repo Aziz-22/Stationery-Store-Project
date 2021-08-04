@@ -24,6 +24,7 @@ class App extends Component {
       objectOfProducts: {
         name: [],
         quan: [],
+        images: [],
       },
 
       //To store the favorite products name and quantity.
@@ -41,21 +42,22 @@ class App extends Component {
   //     name: newName
   // })
 
-  AddProduct = (pName, quan) => {
+  AddProduct = (pName, quan, image) => {
     // This Function for add a product and save it in the array.
-    console.log(pName, quan);
+    console.log(pName, quan , image);
 
     this.setState({
       objectOfProducts: {
         name: [...this.state.objectOfProducts.name, pName],
         quan: [...this.state.objectOfProducts.quan, quan],
+        images: [...this.state.objectOfProducts.images, image]
       },
     });
     swal({
       title: "Added Successfully",
       icon: "success",
     });
-    console.log("Added Success");
+    // console.log("Added Success: ", this.state.objectOfProducts);
   };
 
   deleteFun = (deletedRowName, deletedRowQuan, pName, quan) => {
@@ -142,6 +144,7 @@ class App extends Component {
     
     });
     $("span").addClass("newstyle");
+    
   };
 
   removeOperation = (removeName, removeQuan) => {
@@ -179,8 +182,10 @@ class App extends Component {
   render() {
     console.log("New Array => ", this.state.objectOfProducts);
     return (
+      
       <Router>
         <div className="App">
+          {/* <img src={ this.state.objectOfProducts.images} alt="Loading...."></img> */}
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="container-fluid">

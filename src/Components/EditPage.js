@@ -9,6 +9,7 @@ export default class Home extends Component {
       //copyArray: this.props.productProps.name,
       valueName: "",
       valueQuan: 1,
+      images: null,
       //These new edit variables to copy the previous values that in the variables above
       editName: "",
       editQuan: 1,
@@ -20,6 +21,7 @@ export default class Home extends Component {
     this.Edit_Operation = this.Edit_Operation.bind(this);
   }
 
+  
   handleChangeName(event) {
     this.setState({
       valueName: event.target.value,
@@ -120,6 +122,7 @@ export default class Home extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.productProps.quan[eachQuan]}</td>
+            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Loading...."></img></td>
             <td
               id="edit"
               onClick={() =>
@@ -135,7 +138,9 @@ export default class Home extends Component {
   };
 
   render() {
+    console.log(this.props.productProps.images[0])
     return (
+      
       <div className="container">
         <span className="text-center">
           <h1>Your Cart</h1>
@@ -147,6 +152,7 @@ export default class Home extends Component {
               <th>#</th>
               <th>Product Name</th>
               <th>Quantity</th>
+              <th>Image</th>
               <th>Edit</th>
             </tr>
           </thead>

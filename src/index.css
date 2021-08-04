@@ -188,12 +188,22 @@ animation-duration: 2s;
 
 /** New Styles */
 
+.form-label-upload{
+
+  margin-left: 17.5vw;
+
+}
 
 .ownImage{
 
   width: 50vw;
   /* display: block; */
   height: auto;
+}
+.img-thumbnail{
+
+  max-width: 30% !important;
+  background-color: lightblue !important;
 }
 #edit-input-id {
 

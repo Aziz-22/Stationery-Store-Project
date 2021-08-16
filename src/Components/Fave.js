@@ -43,6 +43,7 @@ export default class Fave extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.productProps.quan[eachQuan]}</td>
+            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Empty"></img></td>
             <td
               id="remove-link"
               onClick={() =>
@@ -72,6 +73,7 @@ export default class Fave extends Component {
               <th>#</th>
               <th>Product Name</th>
               <th>Quantity</th>
+              <th>Image</th>
               <th>Remove</th>
             </tr>
           </thead>

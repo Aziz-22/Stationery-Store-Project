@@ -122,7 +122,7 @@ export default class Home extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.productProps.quan[eachQuan]}</td>
-            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Loading...."></img></td>
+            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Empty"></img></td>
             <td
               id="edit"
               onClick={() =>

@@ -23,6 +23,7 @@ export default class GetAll extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.productProps.quan[eachQuan]}</td>
+            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Empty"></img></td>
             <td id="edit" onClick = {() => this.isFave(eachName, this.props.productProps.quan[eachQuan])}>Add To Favorite List</td>
           </tr>
         );
@@ -32,9 +33,9 @@ export default class GetAll extends Component {
   render() {
     return (
       <div className="container">
-        <p className="text-center">
+        <span className="text-center">
           <h1>Your Products</h1>
-        </p>
+        </span>
 
         <table className = "table">
           <thead>
@@ -42,6 +43,7 @@ export default class GetAll extends Component {
               <th>#</th>
               <th>Product Name</th>
               <th>Quantity</th>
+              <th>Image</th>
               <th>Favorite</th>
             </tr>
           </thead>

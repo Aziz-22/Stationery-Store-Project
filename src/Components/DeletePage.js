@@ -112,6 +112,7 @@ export default class DeletePage extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.productProps.quan[eachQuan]}</td>
+            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Empty"></img></td>
             <td
               id="edit"
               onClick={() =>
@@ -132,9 +133,9 @@ export default class DeletePage extends Component {
     return (
       <div>
         <div className="container">
-          <p className="text-center">
+          <span className="text-center">
             <h1>Your Cart</h1>
-          </p>
+          </span>
 
           <table className="table">
             <thead>
@@ -142,6 +143,7 @@ export default class DeletePage extends Component {
                 <th>#</th>
                 <th>Product Name</th>
                 <th>Quantity</th>
+                <th>Image</th>
                 <th>Delete</th>
               </tr>
             </thead>

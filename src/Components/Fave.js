@@ -11,25 +11,7 @@ export default class Fave extends Component {
 
     this.props.removeProps(removeName, removeQuan);
 
-    //  if (this.props.faveProps.isFaveArrayName.includes(removeName)) {
-    //   let knowIndex = this.props.faveProps.isFaveArrayName.indexOf(removeName);
-    //   this.props.faveProps.isFaveArrayName.splice(knowIndex, 1);
-    // }
-    // if (this.props.faveProps.isFaveArrayQuan.includes(removeQuan)) {
-    //   let knowIndex = this.props.faveProps.isFaveArrayQuan.indexOf(removeQuan);
-    //   this.props.faveProps.isFaveArrayQuan.splice(knowIndex, 1);
-    // }
-
-    // // To Update the arrays and re-rendering again with new list
-    // this.setState({
-
-    //   faveProps: {
-    //     isFaveArrayName: this.props.faveProps.isFaveArrayName,
-    //     isFaveArrayQuan: this.props.faveProps.isFaveArrayQuan,
-    //   }
-    // })
-
-    // alert("Removed Successfully ");
+  
   };
 
   goCheck = () => {

@@ -32,6 +32,7 @@ class App extends Component {
       faveObjects: {
         isFaveArrayName: [],
         isFaveArrayQuan: [],
+        isFaveArrayImage: [],
       },
     };
 
@@ -45,27 +46,35 @@ class App extends Component {
 
   AddProduct = (pName, quan, image) => {
     // This Function for add a product and save it in the array.
-    console.log(pName, quan , image);
+    console.log(pName, quan, image);
+    console.log(this.state.objectOfProducts.images);
 
     this.setState({
       objectOfProducts: {
         name: [...this.state.objectOfProducts.name, pName],
         quan: [...this.state.objectOfProducts.quan, quan],
-        images: [...this.state.objectOfProducts.images, image]
+        images: this.state.objectOfProducts.images.concat(image),
       },
     });
     swal({
       title: "Added Successfully",
       icon: "success",
     });
-    // console.log("Added Success: ", this.state.objectOfProducts);
+    console.log("Added Success: ", this.state.objectOfProducts);
   };
 
-  deleteFun = (deletedRowName, deletedRowQuan, pName, quan) => {
-    console.log("ROW: ", deletedRowName , deletedRowQuan);
-    console.log("63: ", pName, quan);
+  deleteFun = (
+    deletedRowName,
+    deletedRowQuan,
+    deletedRowImage,
+    pName,
+    quan,
+    image
+  ) => {
+    console.log("ROW: ", deletedRowName, deletedRowQuan, deletedRowImage);
+    console.log("We Gonna Delete => : ", pName, quan, image);
 
-      swal({
+    swal({
       title: "Are You Sure?",
       text: "Are you sure you want to delete this products?",
       icon: "warning",
@@ -78,41 +87,94 @@ class App extends Component {
           text: "Deleted Successfully",
           icon: "success",
         });
-         // this for deleted from the favorite section if it is there.
+        // this for deleted from the favorite section if it is there.
         if (this.state.faveObjects.isFaveArrayName.includes(deletedRowName)) {
-          
-          let knowIndex = this.state.faveObjects.isFaveArrayName.indexOf(deletedRowName);
-          console.log(knowIndex)
+          let knowIndex =
+            this.state.faveObjects.isFaveArrayName.indexOf(deletedRowName);
           this.state.faveObjects.isFaveArrayName.splice(knowIndex, 1);
-
         }
 
+        // This For Deleting the Name of The Product
         if (this.state.objectOfProducts.name.includes(deletedRowName)) {
-          
-          let knowIndex = this.state.objectOfProducts.name.indexOf(deletedRowName);
+          let knowIndex =
+            this.state.objectOfProducts.name.indexOf(deletedRowName);
           this.state.objectOfProducts.name.splice(knowIndex, 1);
         }
-        
+
+        // This For Deleting the Quantity of The Product
         if (this.state.objectOfProducts.quan.includes(deletedRowQuan)) {
-          let knowIndex = this.state.objectOfProducts.quan.indexOf(deletedRowQuan);
+          let knowIndex =
+            this.state.objectOfProducts.quan.indexOf(deletedRowQuan);
           this.state.objectOfProducts.quan.splice(knowIndex, 1);
         }
 
-        console.log("81: ", this.state.objectOfProducts)
+        // This For Deleting the Image of The Product
+        if (this.state.objectOfProducts.images.includes(deletedRowImage)) {
+          let knowIndex =
+            this.state.objectOfProducts.images.indexOf(deletedRowImage);
+          this.state.objectOfProducts.images.splice(knowIndex, 1);
+        }
+
+        // console.log("81: ", this.state.objectOfProducts);
         // To Update the arrays and re-rendering again with new list
         this.setState({
           objectOfProducts: {
             name: this.state.objectOfProducts.name,
             quan: this.state.objectOfProducts.quan,
+            images: this.state.objectOfProducts.images,
           },
           // faveObjects: {
           //   isFaveArrayName: this.state.objectOfProducts.name,
           //   isFaveArrayQuan: this.state.objectOfProducts.quan,
           // }
         });
-        console.log("93: ", this.state.objectOfProducts)
-        console.log("88: ", this.state.faveObjects)
+        console.log("After 130: ", this.state.objectOfProducts);
+        console.log("131: ", this.state.faveObjects);
+      }
+    });
+  };
 
+
+  // Delete All  
+
+  deleteAll = () => {
+
+    console.log("Inside Delete All Fun");
+
+    swal({
+      title: "Are You Sure?",
+      text: "Are you sure you want to delete all products?",
+      icon: "warning",
+      buttons: true, // This button to tell the Sweetalert to add a cancel button with confirmation button
+      dangerMode: true, // The focus will automatically be set on the cancel button instead of the confirm button
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal({
+          title: "Deleted All",
+          text: "Deleted Successfully",
+          icon: "success",
+        });
+        // Here Is the actuall deleting operation, I've used the splice method to delete the entire array.
+        this.state.objectOfProducts.name.splice(0, this.state.objectOfProducts.name.length);
+        this.state.objectOfProducts.quan.splice(0, this.state.objectOfProducts.quan.length);
+        this.state.objectOfProducts.images.splice(0, this.state.objectOfProducts.images.length);
+        this.state.faveObjects.isFaveArrayName.splice(0, this.state.faveObjects.isFaveArrayName.length);
+        
+
+        // To Update the arrays and re-rendering again with new list
+        this.setState({
+          objectOfProducts: {
+            name: this.state.objectOfProducts.name,
+            quan: this.state.objectOfProducts.quan,
+            images: this.state.objectOfProducts.images,
+          },
+          faveObjects: {
+            isFaveArrayName: this.state.faveObjects.isFaveArrayName,
+            isFaveArrayQuan: this.state.faveObjects.isFaveArrayQuan,
+            // images
+          },
+        });
+        console.log("177: ", this.props.isfave);
       }
     });
   }
@@ -131,36 +193,29 @@ class App extends Component {
         isFaveArrayQuan: newFaveArrayQuan,
       },
     });
-    console.log("22:",this.state.faveObjects.isFaveArrayName);
+    console.log("22:", this.state.faveObjects.isFaveArrayName);
     console.log(this.state.faveObjects.isFaveArrayQuan);
 
     $("span").removeClass("newstyle");
-    
-
-    
 
     swal({
       title: "Added Successfully",
-      icon: "success"
-    
+      icon: "success",
     });
     $("span").addClass("newstyle");
-    
   };
 
   removeOperation = (removeName, removeQuan) => {
     console.log("RemoveFave From APP = ", removeName, " ", removeQuan);
 
     if (this.state.faveObjects.isFaveArrayName.includes(removeName)) {
-      let knowIndex = this.state.faveObjects.isFaveArrayName.indexOf(
-        removeName
-      );
+      let knowIndex =
+        this.state.faveObjects.isFaveArrayName.indexOf(removeName);
       this.state.faveObjects.isFaveArrayName.splice(knowIndex, 1);
     }
     if (this.state.faveObjects.isFaveArrayQuan.includes(removeQuan)) {
-      let knowIndex = this.state.faveObjects.isFaveArrayQuan.indexOf(
-        removeQuan
-      );
+      let knowIndex =
+        this.state.faveObjects.isFaveArrayQuan.indexOf(removeQuan);
       this.state.faveObjects.isFaveArrayQuan.splice(knowIndex, 1);
     }
 
@@ -173,17 +228,14 @@ class App extends Component {
     });
 
     swal({
-
       title: "Removed Successfully",
-      icon: "success"
-
+      icon: "success",
     });
   };
 
   render() {
     console.log("New Array => ", this.state.objectOfProducts);
     return (
-      
       <Router>
         <div className="App">
           {/* <img src={ this.state.objectOfProducts.images} alt="Loading...."></img> */}
@@ -229,7 +281,9 @@ class App extends Component {
                           <RiHeartAddLine />
                           <span className="counter-style">
                             {console.log(this.state.faveObjects)}
-                            {console.log(this.state.faveObjects.isFaveArrayName.length)}
+                            {console.log(
+                              this.state.faveObjects.isFaveArrayName.length
+                            )}
                             {this.state.faveObjects.isFaveArrayName.length}
                           </span>
                         </h2>
@@ -255,7 +309,7 @@ class App extends Component {
                 alt="MyImage"
                 width="15%"
                 height="15%"
-                rounded = "true"
+                rounded="true"
               ></img>
             </p>
             <h3 className="text-center" style={{ margin: "10vh 0" }}>
@@ -334,10 +388,11 @@ class App extends Component {
               path="/Delete_Page"
               component={() => (
                 <DeletePage
-                  dOperation = {this.deleteFun}
+                  dOperation={this.deleteFun}
+                  deleteAllFun = {this.deleteAll}
                   productProps={this.state.objectOfProducts}
                   myFun={this.delete}
-                  isfave = {this.state.faveObjects}
+                  isfave={this.state.faveObjects}
                 />
               )}
             ></Route>

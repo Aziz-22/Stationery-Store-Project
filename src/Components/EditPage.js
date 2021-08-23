@@ -138,7 +138,6 @@ export default class Home extends Component {
   };
 
   render() {
-    console.log(this.props.productProps.images[0])
     return (
       
       <div className="container">

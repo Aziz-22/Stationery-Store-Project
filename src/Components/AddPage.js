@@ -18,12 +18,13 @@ export default class Add_Page extends Component {
 
       valueName: "",
       valueQuan: "",
-      images: null,
+      images: "",
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeQuan = this.handleChangeQuan.bind(this);
     this.handleChangeImage = this.handleChangeImage.bind(this);
+    
     // this.imageHandle = this.imageHandle.bind(this);
   }
 
@@ -56,7 +57,8 @@ export default class Add_Page extends Component {
 
 
       this.setState({
-        images: URL.createObjectURL(file),
+        // images: URL.createObjectURL(file),
+        images: [...this.state.images, URL.createObjectURL(file)],
       });
 
     });

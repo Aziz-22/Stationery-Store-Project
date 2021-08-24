@@ -4,6 +4,7 @@ import EditPage from "./EditPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { FaUpload } from "react-icons/fa";
 import $ from "jquery";
+import swal from "sweetalert";
 
 export default class Add_Page extends Component {
   constructor(props) {
@@ -19,12 +20,15 @@ export default class Add_Page extends Component {
       valueName: "",
       valueQuan: "",
       images: "",
+
+      // To Check if the user has been added a picture or not (After he hits the button)
+      fileHandle: null,
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeQuan = this.handleChangeQuan.bind(this);
     this.handleChangeImage = this.handleChangeImage.bind(this);
-    
+
     // this.imageHandle = this.imageHandle.bind(this);
   }
 
@@ -50,46 +54,50 @@ export default class Add_Page extends Component {
     });
   }
   handleChangeImage(event) {
-    
-
     [...event.target.files].forEach((file) => {
       console.log("file >>> ", file.name);
-
 
       this.setState({
         // images: URL.createObjectURL(file),
         images: [...this.state.images, URL.createObjectURL(file)],
       });
-
     });
 
-    var file = document.querySelector("#user-input-upload");
+    let myFile = document.querySelector("#user-input-upload");
 
     // Get the selected file
-    [file] = event.target.files;
+    [myFile] = event.target.files;
     // Get the file name and size
-    const fileName = file.name;
+    const fileName = myFile.name;
+    console.log("Before: ", this.state.fileHandle);
+
     // Convert size in bytes to kilo bytes
-    const size = (file.size / 1000).toFixed(2);
-  
+    const size = (myFile.size / 1000).toFixed(2);
+
     // Set the text content
     const fileNameAndSize = fileName + " - " + size + "KB";
     document.querySelector(".file-name").textContent = fileNameAndSize;
 
+    this.setState({
+      fileHandle: fileName,
+    });
+   
+
     // setPictures(tempArr);
   }
-  Add_Operation = (e) => {
+
+  Add_Operation = (e, myFileHandle) => {
+    console.log(myFileHandle);
     // To Prevent The Refresh The Page And Fire Toggle
     e.preventDefault();
 
-    console.log(
-      "Name ",
-      this.state.valueName,
-      "Quan ",
-      this.state.valueQuan,
-      "IMAGE: ",
-      this.state.images
-    );
+    if (myFileHandle == null) {
+      swal({
+        title: "You Need to Upload a Picture First!",
+        icon: "warning",
+      });
+      return false;
+    }
     this.props.test(
       this.state.valueName,
       this.state.valueQuan,
@@ -150,7 +158,6 @@ export default class Add_Page extends Component {
                   <FaUpload />
                 </span>{" "}
                 Do You Want To Upload an Image?
-                
               </label>{" "}
               <p className="file-name"></p>
               <input
@@ -164,7 +171,7 @@ export default class Add_Page extends Component {
                 type="submit"
                 value="Add Product"
                 className="btn btn-primary"
-                onClick={this.Add_Operation}
+                onClick={(e) => this.Add_Operation(e, this.state.fileHandle)}
               />
               <input
                 id="inputBtn"

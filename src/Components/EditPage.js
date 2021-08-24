@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../index.css";
 import swal from "sweetalert";
+import { FaUpload } from "react-icons/fa";
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -9,19 +11,20 @@ export default class Home extends Component {
       //copyArray: this.props.productProps.name,
       valueName: "",
       valueQuan: 1,
-      images: null,
+      valueImage: "",
       //These new edit variables to copy the previous values that in the variables above
       editName: "",
       editQuan: 1,
+      editImage: "",
     };
 
     // this.GoToAPIpage = this.GoToAPIpage.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeQuan = this.handleChangeQuan.bind(this);
+    this.handleChangeImage = this.handleChangeImage.bind(this);
     this.Edit_Operation = this.Edit_Operation.bind(this);
   }
 
-  
   handleChangeName(event) {
     this.setState({
       valueName: event.target.value,
@@ -32,16 +35,29 @@ export default class Home extends Component {
       valueQuan: event.target.value,
     });
   }
+  handleChangeImage = (event) => {
+    // [...event.target.files].forEach((file) => {
+    //   console.log("file >>> ", file.name);
 
-  boxModal = (pName, pQuan) => {
-    console.log("Modal For => ", pName, " ", pQuan);
+      this.setState({
+        // file: URL.createObjectURL(event.target.files[0])
+        //   // images: URL.createObjectURL(file),
+        valueImage: URL.createObjectURL(event.target.files[0]),
+      });
+    // });
+  };
+
+  boxModal = (pName, pQuan, pImage) => {
+    console.log("Modal For => ", pName, " ", pQuan, " ", pImage);
 
     // To Hold The Previous Values For Product Name And Quantity
     this.setState({
       valueName: pName,
       valueQuan: pQuan,
+      valueImage: pImage,
       editName: pName,
       editQuan: pQuan,
+      editImage: pImage,
     });
 
     var modal = document.getElementById("myModal");
@@ -59,9 +75,10 @@ export default class Home extends Component {
     //return this.Edit_Operation(pName);
   };
 
-  Edit_Operation = (e, newProductName, newQuan) => {
+  Edit_Operation = (e, newProductName, newQuan, newImage) => {
     e.preventDefault();
     var modal = document.getElementById("myModal");
+    console.log("The New Image, ", this.state.editImage, " OR ", newImage);
     // let x = this.boxModal(m);
 
     swal({
@@ -86,15 +103,22 @@ export default class Home extends Component {
         );
         console.log("IndexQuan: ", knowIndexQuan);
 
+        let knowIndexImage = this.props.productProps.images.indexOf(
+          this.state.editImage
+        );
+        console.log("IndexImage : ", knowIndexImage);
+
         //  Then replace it with new ones
         this.props.productProps.name[knowIndexName] = newProductName;
         this.props.productProps.quan[knowIndexQuan] = newQuan;
+        this.props.productProps.images[knowIndexImage] = newImage;
 
         // To Update the arrays and re-rendering again with new list
         this.setState({
           objectOfProducts: {
             name: this.props.productProps.name,
             quan: this.props.productProps.quan,
+            images: this.props.productProps.images,
           },
         });
       }
@@ -122,11 +146,21 @@ export default class Home extends Component {
             <td>{counter++}</td>
             <td>{eachName}</td>
             <td>{this.props.productProps.quan[eachQuan]}</td>
-            <td><img className="img-thumbnail" src={this.props.productProps.images[eachQuan]} alt="Empty"></img></td>
+            <td>
+              <img
+                className="img-thumbnail"
+                src={this.props.productProps.images[eachQuan]}
+                alt="Empty"
+              ></img>
+            </td>
             <td
               id="edit"
               onClick={() =>
-                this.boxModal(eachName, this.props.productProps.quan[eachQuan])
+                this.boxModal(
+                  eachName,
+                  this.props.productProps.quan[eachQuan],
+                  this.props.productProps.images[eachQuan]
+                )
               }
             >
               Edit
@@ -138,8 +172,8 @@ export default class Home extends Component {
   };
 
   render() {
+    // console.log("Image Now => ", this.state.valueImage," / " , this.state.editImage)
     return (
-      
       <div className="container">
         <span className="text-center">
           <h1>Your Cart</h1>
@@ -166,7 +200,7 @@ export default class Home extends Component {
             </span>
             <div>
               <form>
-                <div className="form-floating mb-3">
+                <div className="form-floating mb-5">
                   <input
                     // {...console.log("150: ", this.state.editName , this.state.editQuan )}
                     value={this.state.valueName}
@@ -199,6 +233,22 @@ export default class Home extends Component {
                     Quantity
                   </label>
                 </div>
+                <div className="form-floating">
+                  <label
+                    style={{ marginTop: "1vh", marginLeft: "12vw" }}
+                    htmlFor="user-input-uploading"
+                    className="form-label-uplod"
+                  >
+                    Do You Want To Change The Image?
+                  </label>{" "}
+                  <input
+                    style={{ marginTop: "11vh", marginLeft: "13vw" }}
+                    className="form-contr"
+                    type="file"
+                    id="user-input-uploading"
+                    onChange={this.handleChangeImage}
+                  />
+                </div>
 
                 {/* <label> Do You Want To Upload an Image?</label>{" "}
               <input type="file" id="user-input-upload" />
@@ -213,58 +263,13 @@ export default class Home extends Component {
                     this.Edit_Operation(
                       e,
                       this.state.valueName,
-                      this.state.valueQuan
+                      this.state.valueQuan,
+                      this.state.valueImage
                     )
                   }
                 />
               </form>
             </div>
-            {/* <form>
-              <div className="my-form-group">
-                <label className="form-label">Edit a Product</label>{" "}
-                <input
-                  // {...console.log("150: ", this.state.editName , this.state.editQuan )}
-                  value={this.state.valueName}
-                  onChange={this.handleChangeName}
-                  type="text"
-                  id="user-input-pName-edit"
-                  placeholder="Type Your Product Here"
-                  className="form-control"
-                />
-              </div>
-              <br />
-              <br />
-              <div className="row">
-                <div className="col-sm-3">
-                  <label className="form-label-edit">Quantity </label>{" "}
-                  <input
-                    value={this.state.valueQuan}
-                    onChange={this.handleChangeQuan}
-                    type="number"
-                    id="user-input-pQuan-edit"
-                    placeholder="How Many Pieces You Want?"
-                    className="form-control"
-                  />
-                </div>
-              </div>
-              <br />
-              <br />
-            
-              <input
-                id = "inputBtn"
-                type="submit"
-                value="Edit Product"
-                className="btn btn-success"
-                onClick={(e) =>
-                  this.Edit_Operation(
-                    e,
-                    this.state.valueName,
-                    this.state.valueQuan
-                  )
-                }
-              />
-              <input id = "inputBtn" type="reset" value="Reset" className="btn btn-danger" />
-            </form> */}
           </div>
         </div>
       </div>

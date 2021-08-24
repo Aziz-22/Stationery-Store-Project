@@ -56,6 +56,7 @@ class App extends Component {
         images: this.state.objectOfProducts.images.concat(image),
       },
     });
+    
     swal({
       title: "Added Successfully",
       icon: "success",
@@ -109,11 +110,14 @@ class App extends Component {
         }
 
         // This For Deleting the Image of The Product
+        console.log("Before.. ", this.state.objectOfProducts.images)
         if (this.state.objectOfProducts.images.includes(deletedRowImage)) {
+          console.log("Inside")
           let knowIndex =
             this.state.objectOfProducts.images.indexOf(deletedRowImage);
           this.state.objectOfProducts.images.splice(knowIndex, 1);
         }
+        console.log("Outside")
 
         // console.log("81: ", this.state.objectOfProducts);
         // To Update the arrays and re-rendering again with new list
@@ -123,10 +127,10 @@ class App extends Component {
             quan: this.state.objectOfProducts.quan,
             images: this.state.objectOfProducts.images,
           },
-          // faveObjects: {
-          //   isFaveArrayName: this.state.objectOfProducts.name,
-          //   isFaveArrayQuan: this.state.objectOfProducts.quan,
-          // }
+          faveObjects: {
+            isFaveArrayName: this.state.objectOfProducts.name,
+            isFaveArrayQuan: this.state.objectOfProducts.quan,
+          }
         });
         console.log("After 130: ", this.state.objectOfProducts);
         console.log("131: ", this.state.faveObjects);

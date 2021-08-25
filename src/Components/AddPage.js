@@ -3,7 +3,6 @@ import "../index.css";
 import EditPage from "./EditPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { FaUpload } from "react-icons/fa";
-import $ from "jquery";
 import swal from "sweetalert";
 
 export default class Add_Page extends Component {

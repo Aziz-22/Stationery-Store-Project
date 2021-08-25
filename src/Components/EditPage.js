@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
 import swal from "sweetalert";
-import { FaUpload } from "react-icons/fa";
 
 export default class Home extends Component {
   constructor(props) {

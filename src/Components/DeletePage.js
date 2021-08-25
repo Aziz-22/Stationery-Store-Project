@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../index.css";
-import swal from "sweetalert";
 export default class DeletePage extends Component {
   myArr = this.props.productProps.name;
   myArrQuan = this.props.productProps.quan;

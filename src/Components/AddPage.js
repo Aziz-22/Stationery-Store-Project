@@ -31,17 +31,6 @@ export default class Add_Page extends Component {
     // this.imageHandle = this.imageHandle.bind(this);
   }
 
-  // imageHandle = (event) =>{
-
-  //   if (event.target.files && event.target.files[0]) {
-
-  //     let img = event.target.files[0];
-  //     this.setState({
-
-  //       images: URL.createObjectURL(img)
-  //     });
-  //   }
-  // }
   handleChangeName(event) {
     this.setState({
       valueName: event.target.value,
@@ -68,7 +57,6 @@ export default class Add_Page extends Component {
     [myFile] = event.target.files;
     // Get the file name and size
     const fileName = myFile.name;
-    console.log("Before: ", this.state.fileHandle);
 
     // Convert size in bytes to kilo bytes
     const size = (myFile.size / 1000).toFixed(2);
@@ -80,7 +68,6 @@ export default class Add_Page extends Component {
     this.setState({
       fileHandle: fileName,
     });
-   
 
     // setPictures(tempArr);
   }
@@ -112,7 +99,11 @@ export default class Add_Page extends Component {
     this.setState({
       valueName: "",
       valueQuan: "",
+      images: "",
+      fileHandle: null,
     });
+
+    document.querySelector(".file-name").textContent = " ";
   };
 
   render() {
@@ -152,19 +143,24 @@ export default class Add_Page extends Component {
                 </label>
               </div>
               <br></br>
-              <label htmlFor="user-input-upload" className="form-label-upload">
-                <span style={{ verticalAlign: "text-bottom" }}>
-                  <FaUpload />
-                </span>{" "}
-                Do You Want To Upload an Image?
-              </label>{" "}
-              <p className="file-name"></p>
-              <input
-                className="inputFile"
-                type="file"
-                id="user-input-upload"
-                onChange={this.handleChangeImage}
-              />
+              <div className="divUpload">
+                <label
+                  htmlFor="user-input-upload"
+                  className="form-label-upload"
+                >
+                  <span style={{ verticalAlign: "text-bottom" }}>
+                    <FaUpload />
+                  </span>{" "}
+                  Do You Want To Upload an Image?
+                </label>{" "}
+                <p className="file-name"></p>
+                <input
+                  className="inputFile"
+                  type="file"
+                  id="user-input-upload"
+                  onChange={this.handleChangeImage}
+                />
+              </div>
               <input
                 id="inputBtn"
                 type="submit"

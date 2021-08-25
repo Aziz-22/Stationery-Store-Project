@@ -4,7 +4,6 @@ body {
   background-image: linear-gradient(to right, snow, lightblue);
 }
 
-
 .link-tags {
   background-color: aliceblue;
   display: flex;
@@ -13,27 +12,24 @@ body {
   color: red;
   text-shadow: 0px 0px 11px lightgrey;
   width: 100%;
-  
 }
 
-
-
-.link-tags>.add-link {
+.link-tags > .add-link {
   color: red;
   text-decoration: none;
 }
 
-.link-tags>.edit-link {
+.link-tags > .edit-link {
   color: red;
   text-decoration: none;
 }
 
-.link-tags>.delete-link {
+.link-tags > .delete-link {
   color: red;
   text-decoration: none;
 }
 
-.link-tags>.get-link {
+.link-tags > .get-link {
   color: red;
   text-decoration: none;
 }
@@ -170,17 +166,18 @@ td {
   vertical-align: super;
 }
 
-.newstyle{
-
-animation-name: example;
-animation-duration: 2s;
-
+.newstyle {
+  animation-name: example;
+  animation-duration: 2s;
 }
 
-@keyframes example{
-
-  from {background-color: orange;}
-  to {background-color: gold;}
+@keyframes example {
+  from {
+    background-color: orange;
+  }
+  to {
+    background-color: gold;
+  }
 }
 
 .fave-link {
@@ -189,25 +186,20 @@ animation-duration: 2s;
 
 /** New Styles */
 
-.file-name{
-
+.file-name {
   display: contents;
   margin-right: 10vw;
 }
 
-.form-label-upload{
-
+.form-label-upload {
   margin-left: 17.5vw;
   cursor: pointer;
-  
-
 }
-.fa{
+.fa {
   vertical-align: super;
 }
 
-.inputFile{
-
+.inputFile {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -215,7 +207,8 @@ animation-duration: 2s;
   position: absolute;
   z-index: -1;
 }
-.inputFile,.form-label-upload {
+.inputFile,
+.form-label-upload {
   font-size: 1.25em;
   font-weight: 350;
   color: white;
@@ -223,34 +216,31 @@ animation-duration: 2s;
   display: inline-block;
 }
 
-.inputFile:focus,.form-label-upload,
-.inputFile,.form-label-upload:hover {
+.inputFile:focus,
+.form-label-upload,
+.inputFile,
+.form-label-upload:hover {
   background-color: cadetblue;
   padding: 15px;
   margin-right: 10vw;
-  
 }
 
-.ownImage{
-
+.ownImage {
   width: 50vw;
   /* display: block; */
   height: auto;
 }
-.img-thumbnail{
-
+.img-thumbnail {
   max-width: 30% !important;
   background-color: lightblue !important;
 }
 #edit-input-id {
-
-  margin: auto ;
+  margin: auto;
   display: block;
   width: 50vw;
 }
 
-#inputEditBtn{
-
+#inputEditBtn {
   margin: auto;
   display: block;
   margin-top: 5vh;
@@ -258,62 +248,52 @@ animation-duration: 2s;
 }
 
 #userInput {
-
-
   width: 30vw;
   border-right: none;
   border-radius: 15px;
   /* margin: auto; */
   height: 6vh !important;
-  
 }
 
-#mybutton{
-
-   border-radius: 15px;
-   border-top-left-radius: 0px;
-   border-bottom-left-radius: 0px;
-   border-left-style: none;
-   margin-left: -9vw;
-   height: 6vh;
-   width: 9vw;
+#mybutton {
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left-style: none;
+  margin-left: -9vw;
+  height: 6vh;
+  width: 9vw;
 }
 
 .nav-link {
-
   margin-left: 8vw;
   margin-bottom: 10vh;
   font-size: large;
   cursor: pointer;
-
 }
-.nav-link:hover{
-
+.nav-link:hover {
   color: darkblue;
-  font-size: larger
+  font-size: larger;
 }
 
 #AddTitle {
-
   margin: 5vh 0;
 }
 
 .title {
-
   font-size: 2vmax;
   margin-left: 22vw;
 }
 
 #form-control-input1-id,
 #form-control-input2-id {
-
   width: 50vw;
   display: block;
-  margin:auto
+  margin: auto;
 }
 
 #inputBtn {
-  margin: 5vw 1vw 0vw 14vw;
+  margin: 5vw 2vw 0vw 14vw;
   width: 20vw;
   height: auto;
 }
@@ -324,9 +304,9 @@ animation-duration: 2s;
 
 /*! Media Queries */
 
-@media screen and (min-width: 767px) and (max-width: 1206px) {
+@media screen and (min-width: 620px) and (max-width: 760px) {
+  
 
- 
   .inputFile:focus,
   .form-label-upload,
   .inputFile,
@@ -334,21 +314,53 @@ animation-duration: 2s;
     background-color: cadetblue;
     padding: 15px;
     margin-right: 0vw;
-
   }
   .file-name {
-
     display: contents;
-
-    
   }
 
   .form-label-upload {
+   
+  }
+  
 
-    margin-left: 21vw;
+  .form-control {
+    width: 50vw !important;
+    height: auto !important;
+  }
+
+  .form-label {
+    left: 20vw !important;
+  }
+
+  #inputBtn {
+    margin: 10vw 5vw 10vh 5vw;
+    width: 24vw;
+  }
+
+  .nav-link {
+    margin-left: 0vw;
+    margin-bottom: 10vh;
+  }
+}
+@media screen and (min-width: 967px) and (max-width: 1000px)  {
+
+  .inputFile:focus,
+  .form-label-upload,
+  .inputFile,
+  .form-label-upload:hover {
+    background-color: cadetblue;
+    padding: 15px;
+    margin-right: 0vw;
+  }
+
+  .file-name {
+    display: contents;
+  }
+
+  .form-label-upload {
+    margin-left: 101px;
     cursor: pointer;
-
-
   }
 
   .form-control {
@@ -361,40 +373,108 @@ animation-duration: 2s;
   }
 
   #inputBtn {
-    margin: 10vw 1vw 0vw 14vw;
+    margin: 10vw 5vw 10vh 5vw;
     width: 24vw;
-    height: 4vh;
   }
 
   .nav-link {
-
     margin-left: 0vw;
     margin-bottom: 10vh;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1000px) {
 
+  .inputFile:focus,
+  .form-label-upload,
+  .inputFile,
+  .form-label-upload:hover {
+    background-color: cadetblue;
+    padding: 15px;
+    margin-right: 0vw;
   }
 
+  .file-name {
+    display: contents;
+  }
+
+  .form-label-upload {
+    margin-left: 215px;
+    cursor: pointer;
+  }
+
+  .form-control {
+    width: 50vw !important;
+    height: auto !important;
+  }
+
+  .form-label {
+    left: 20vw !important;
+  }
+
+  #inputBtn {
+    margin: 10vw 5vw 10vh 15vw;
+    width: 24vw;
+  }
+
+  .nav-link {
+    margin-left: 0vw;
+    margin-bottom: 10vh;
+  }
 }
 
+@media screen and (min-width: 672px) and (max-width: 761px) {
+  .inputFile:focus,
+  .form-label-upload,
+  .inputFile,
+  .form-label-upload:hover {
+    background-color: cadetblue;
+    padding: 15px;
+    margin-right: 0vw;
+  }
 
+  .file-name {
+    display: contents;
+  }
+
+  .form-label-upload {
+    margin-left: 21vw;
+    cursor: pointer;
+  }
+
+  .form-control {
+    width: 50vw !important;
+    height: auto !important;
+  }
+
+  .form-label {
+    left: 20vw !important;
+  }
+
+  #inputBtn {
+    margin: 10vw 5vw 10vh 5vw;
+    width: 24vw;
+  }
+
+  .nav-link {
+    margin-left: 0vw;
+    margin-bottom: 10vh;
+  }
+}
 
 @media only screen and (max-width: 475px) {
-
   .img-thumbnail {
     max-width: 105% !important;
     background-color: lightblue !important;
   }
 
   .file-name {
-
     display: flex;
     position: relative;
     left: 30vw;
-    
   }
- 
+
   .form-control {
     width: 50vw !important;
-  
   }
 
   .form-label {
@@ -408,31 +488,22 @@ animation-duration: 2s;
   }
 
   .nav-link {
-
     margin-left: 0vw;
     margin-bottom: 10vh;
-
   }
 
-  #mybutton{
-
-   margin-left: -21vw;
-   width: 21vw;
-}
-
-
-
+  #mybutton {
+    margin-left: -21vw;
+    width: 21vw;
+  }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 540px) {
-
-
   .form-control {
     width: 50vw !important;
     margin: auto !important;
     display: block !important;
     height: auto;
-    
   }
 
   .form-label {
@@ -445,12 +516,7 @@ animation-duration: 2s;
   }
 
   #mybutton {
-
     margin-left: -16vw;
     width: 16vw;
-
   }
-
- 
 }
-

@@ -97,5 +97,4 @@ _I would like to allow a user to add an image for a product, also make some vali
 };
 
 # Links
-
 - The Website https://aziz-22.github.io/Stationery-Store-Project/

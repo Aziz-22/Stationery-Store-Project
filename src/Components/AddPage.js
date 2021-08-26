@@ -3,7 +3,7 @@ import "../index.css";
 import EditPage from "./EditPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { FaUpload } from "react-icons/fa";
-import swal from "sweetalert";
+import { BiCheckCircle } from "react-icons/bi";
 
 export default class Add_Page extends Component {
   constructor(props) {
@@ -51,6 +51,7 @@ export default class Add_Page extends Component {
       });
     });
 
+
     let myFile = document.querySelector("#user-input-upload");
 
     // Get the selected file
@@ -59,11 +60,11 @@ export default class Add_Page extends Component {
     const fileName = myFile.name;
 
     // Convert size in bytes to kilo bytes
-    const size = (myFile.size / 1000).toFixed(2);
+    // const size = (myFile.size / 1000).toFixed(2);
 
-    // Set the text content
-    const fileNameAndSize = fileName + " - " + size + "KB";
-    document.querySelector(".file-name").textContent = fileNameAndSize;
+    // // Set the text content
+    // const fileNameAndSize = fileName + " - " + size + "KB";
+    document.getElementById("checkId").className = "On";
 
     this.setState({
       fileHandle: fileName,
@@ -77,13 +78,7 @@ export default class Add_Page extends Component {
     // To Prevent The Refresh The Page And Fire Toggle
     e.preventDefault();
 
-    if (myFileHandle == null) {
-      swal({
-        title: "You Need to Upload a Picture First!",
-        icon: "warning",
-      });
-      return false;
-    }
+   
     this.props.test(
       this.state.valueName,
       this.state.valueQuan,
@@ -103,10 +98,23 @@ export default class Add_Page extends Component {
       fileHandle: null,
     });
 
-    document.querySelector(".file-name").textContent = " ";
+    document.querySelector(".On").className = "Off";
   };
 
   render() {
+    
+    // if (window.performance) {
+    //   console.info("window.performance works fine on this browser");
+    // }
+    // console.info(performance.navigation.type);
+    // if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+    //   console.info("This page is reloaded");
+    
+    //   window.location.href = "/Stationery-Store-Project";
+
+    // } else {
+    //   console.info("This page is not reloaded");
+    // }
     return (
       <Router>
         <div>
@@ -153,7 +161,7 @@ export default class Add_Page extends Component {
                   </span>{" "}
                   Do You Want To Upload an Image?
                 </label>{" "}
-                <p className="file-name"></p>
+                <p id="checkId" style={{display: "none"}}><BiCheckCircle/></p>
                 <input
                   className="inputFile"
                   type="file"

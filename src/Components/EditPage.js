@@ -22,6 +22,7 @@ export default class Home extends Component {
     this.handleChangeQuan = this.handleChangeQuan.bind(this);
     this.handleChangeImage = this.handleChangeImage.bind(this);
     this.Edit_Operation = this.Edit_Operation.bind(this);
+    this.onErrorFun = this.onErrorFun.bind(this);
   }
 
   handleChangeName(event) {
@@ -45,6 +46,13 @@ export default class Home extends Component {
       });
     // });
   };
+
+  onErrorFun = (myimage) => {
+    
+    myimage.onerror = " ";
+    myimage.target.src = "https://icon-library.com/images/found-icon/found-icon-24.jpg";
+    
+  }
 
   boxModal = (pName, pQuan, pImage) => {
     console.log("Modal For => ", pName, " ", pQuan, " ", pImage);
@@ -149,7 +157,8 @@ export default class Home extends Component {
               <img
                 className="img-thumbnail"
                 src={this.props.productProps.images[eachQuan]}
-                alt="Empty"
+                alt = " "
+                onError = {this.onErrorFun}
               ></img>
             </td>
             <td

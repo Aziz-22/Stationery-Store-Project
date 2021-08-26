@@ -186,6 +186,17 @@ td {
 
 /** New Styles */
 
+.On {
+  color: green;
+  font-size: x-large;
+  margin-left: -80px;
+  display: inline-block !important;
+}
+
+.Off {
+  display: none;
+}
+
 .file-name {
   display: contents;
   margin-right: 10vw;
@@ -304,8 +315,11 @@ td {
 
 /*! Media Queries */
 
-@media screen and (min-width: 620px) and (max-width: 760px) {
-  
+@media screen and (min-width: 620px) and (max-width: 770px) {
+  #checkId {
+    margin-left: 0;
+    font-size: x-large;
+  }
 
   .inputFile:focus,
   .form-label-upload,
@@ -320,9 +334,7 @@ td {
   }
 
   .form-label-upload {
-   
   }
-  
 
   .form-control {
     width: 50vw !important;
@@ -334,7 +346,7 @@ td {
   }
 
   #inputBtn {
-    margin: 10vw 5vw 10vh 5vw;
+    margin: 10vw 5vw 10vh 12vw;
     width: 24vw;
   }
 
@@ -343,8 +355,7 @@ td {
     margin-bottom: 10vh;
   }
 }
-@media screen and (min-width: 967px) and (max-width: 1000px)  {
-
+@media screen and (min-width: 967px) and (max-width: 1000px) {
   .inputFile:focus,
   .form-label-upload,
   .inputFile,
@@ -383,7 +394,6 @@ td {
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1000px) {
-
   .inputFile:focus,
   .form-label-upload,
   .inputFile,
@@ -465,6 +475,12 @@ td {
   .img-thumbnail {
     max-width: 105% !important;
     background-color: lightblue !important;
+  }
+
+  #checkId {
+    position: relative;
+    left: 70vw;
+    font-size: x-large;
   }
 
   .file-name {
